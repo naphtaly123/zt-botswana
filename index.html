@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="images/logo3.png" alt="images/logo3.png" />
+      </div>
+
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="main">
+      <div class="hero" id="hero">
+        <h1>Welcome to Zimele Technologies.</h1>
+        <p>We are still working on our website. Stay tuned for the updates.</p>
+
+        <!-- countdown timer -->
+        <div class="container">
+          <div class="countdown" id="countdown">
+            <div class="digits-wrap">
+              <div class="digits-box">
+                <div class="digit" id="dayTen"></div>
+                <div class="digit" id="dayUnit"></div>
+              </div>
+              <span>DAYS</span>
+            </div>
+            <div class="digits-wrap">
+              <div class="digits-box">
+                <div class="digit" id="hourTen"></div>
+                <div class="digit" id="hourUnit"></div>
+              </div>
+              <span>HOURS</span>
+            </div>
+            <div class="digits-wrap">
+              <div class="digits-box">
+                <div class="digit" id="minuteTen"></div>
+                <div class="digit" id="minuteUnit"></div>
+              </div>
+              <span>MINUTES</span>
+            </div>
+            <div class="digits-wrap">
+              <div class="digits-box">
+                <div class="digit" id="secondTen"></div>
+                <div class="digit" id="secondUnit"></div>
+              </div>
+              <span>SECONDS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about" id="about">
+        <h1>ABOUT US</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga ab
+          aliquam officiis, aspernatur molestias maiores dolorum.
+        </p>
+        <div class="div-container">
+          <div class="col-1">
+            <h2>ZIMELE TECHNOLOGIES BOTSWANA</h2>
+            <p>Address: Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fuga ab
+              aliquam officiis, aspernatur molestias maiores dolorum eius soluta
+              similique ipsa beatae quam nesciunt quis qui explicabo nisi minus
+              natus.</p>
+          </div>
+          <div class="col-2">
+            <div class="service">
+              <p class="title"><i class="fa fa-laptop"></i> IT services</p>
+              <p>qui explicabo nisi minus natus.</p>
+            </div>
+            <div class="service">
+              <p class="title"><i class="fa fa-briefcase"></i> SAP Consultancy</p>
+              <p>qui explicabo nisi minus natus.</p>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="service">
+              <p class="title"><i class="fa fa-cogs"></i> SAP Software</p>
+              <p>qui explicabo nisi minus natus.</p>
+            </div>
+            <div class="service">
+              <p class="title"><i class="fa fa-network-wired"></i> ICT Business Solutions</p>
+              <p>qui explicabo nisi minus natus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact" id="contact">
+        <h1>CONTACT US</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="div-container">
+          <div class="address-container">
+            <p><i class="fa fa-map-marker"></i> Address</p>
+            <p>123 Main St, Anytown, USA</p>
+            <p><i class="fa fa-phone"></i> Phone</p>
+            <p>555-555-5555</p>
+            <p><i class="fa fa-envelope"></i> Email</p>
+            <p>info@domain.com</p>
+            <p><i class="fa fa-globe"></i> Website</p>
+            <p>www.domain.com</p>
+          </div>
+          <div class="form-container">
+            <p>Get in touch!</p>
+            <form>
+              <label for="fname">First name:</label><br />
+              <input type="text" id="fname" name="fname" /><br />
+              <label for="lname">Email:</label><br />
+              <input type="email" id="email" name="email" /><br />
+              <label for="lname">Message:</label><br />
+              <input type="text" id="message" name="message" /><br />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <p>&copy; 2025 Zimele Technologies.</p>
+      </div>
+    </div>
+
+
+    <!-- Script JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
