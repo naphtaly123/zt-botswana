@@ -2,7 +2,8 @@ function App() {
 
   return (
     <>
-    <main className="py-10 h-screen">
+ 
+    <main className="py-3 h-10">
       <div className="font-bold text-3xl text-center">
         <div className="col-start-2">
           right
@@ -11,6 +12,8 @@ function App() {
           left
         </div>
       </div>
+      
+
     </main>
     </>
   )

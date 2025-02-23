@@ -10,5 +10,6 @@ createRoot(document.getElementById('root')!).render(
     <Nav />
     <App />
     <Footer />
+    
   </StrictMode>,
 )
