@@ -1,7 +1,9 @@
 function AboutPage() {
     return(
     <>
-    This is the about page
+    Hello, this is about page
+
+
     </>
     )
     
