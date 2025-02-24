@@ -21,8 +21,6 @@ def saveUserEmail(email, subject, message):
 @method_decorator(csrf_exempt, name='dispatch')
 class SendEmailView(View):
     def post(self, request):
-        print("send email method executed")
-        print("Check the request data: ", request.body)
 
         # Parse the JSON data from the request body
         try:
@@ -36,10 +34,6 @@ class SendEmailView(View):
         email_from = settings.EMAIL_HOST_USER 
         recipient_email = data.get("email")
         message = data.get("message", '')
-
-        print("User data", subject, recipient_email, message) 
-        print('Email: ', settings.EMAIL_HOST_USER) 
-        print('Password: ', settings.EMAIL_HOST_PASSWORD)
         
         if not recipient_email:
             return JsonResponse({"error": "Email is required"}, status=status.HTTP_400_BAD_REQUEST)
@@ -54,11 +48,11 @@ class SendEmailView(View):
                 password=settings.EMAIL_HOST_PASSWORD,
                 use_tls=settings.EMAIL_USE_TLS
                 ) as connection: 
-                print('Initialisation send email...')
                 email_message = EmailMessage(subject, message_body, email_from, [recipient_email], connection=connection)
                 try:
-                    print("Host user email before sending", email_from)
                     email_message.send()
+                    print("Email sent to user: ", recipient_email)
+                    saveUserEmail(email=recipient_email, subject=user_subject, message=message)
                     return JsonResponse({"message": "Email sent successfully"}, status=status.HTTP_200_OK)
                 except Exception as e:
                     return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -66,7 +60,6 @@ class SendEmailView(View):
             print(f"Error sending email: {e}")
             return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
-        print('Email sent')
 
         # save the email details of user to the database
         saveUserEmail(email=recipient_email, subject=user_subject, message=message)
