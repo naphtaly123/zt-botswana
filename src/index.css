@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom CSS for Logo Slider Animation */
+@keyframes loop-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-loop-scroll {
+    animation: loop-scroll 20s linear infinite; /* Adjust duration for speed */
+    width: "200%";
+}
+
+@layer utilities{
+    .paused{
+        animation-play-state: paused;
+    }
+}
