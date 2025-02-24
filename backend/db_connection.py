@@ -1,10 +1,14 @@
 
+import os
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from urllib.parse import quote
+from dotenv import load_dotenv
+load_dotenv()
 
-password = "jFF7tjWWhKEwMtCA"
-username = "naphtalynonofo"
+password = os.getenv('DB_PASSWORD')
+username = os.getenv('DB_USERNAME')
+
 
 encodePass=quote(password)
 encodeUser=quote(username)
