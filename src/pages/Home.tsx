@@ -53,7 +53,7 @@ function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-full mt-16 px-10 font-sans" style={{ backgroundColor: "#6496B3" }}>
+      <section className="min-h-full pt-24 px-10 font-sans" style={{ backgroundColor: "#6496B3" }}>
         <div className="mx-auto px-6 md:flex md:items-center">
           {/* Hero Text */}
           <div className="md:w-1/2 text-white py-1">
