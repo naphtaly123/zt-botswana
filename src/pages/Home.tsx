@@ -15,7 +15,7 @@ function HomePage() {
             </h1>
             <p className="mb-6">
               Suscipit feugiat purus ac nunc amet, ld pulvinar arcu nibh orci
-              non rhoncus lobortis id neque...
+              non rhoncus lobortis id neque...f
             </p>
 
             {/* List with Icons */}
