@@ -11,7 +11,7 @@ function Nav() {
 
   return (
     <>
-      <header className="py-5 fixed w-full top-0" style={{ backgroundColor: "#6496B3" }}>
+      <header className="z-10 py-5 fixed w-full top-0" style={{ backgroundColor: "#6496B3" }}>
         <nav className="container mx-10 justify-between items-center flex">
           {/* Logo */}
           <Link to="/">

@@ -6,7 +6,7 @@ function Footer() {
     <>
       <footer id="footer">
         <div className="bg-gray-90 py-4 text-black">
-          <div className="container px-4 mx-auto">
+          <div className="container px-10 mx-auto">
             <div className="-mx-4 flex flex-wrap justify-between">
               <div className="px-4 my-4 w-full xl:w-1/5">
               <Link to="/">
