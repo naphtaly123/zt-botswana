@@ -1,73 +1,148 @@
-import { FiArrowRightCircle } from "react-icons/fi";
+import { FiArrowRightCircle, FiBriefcase,} from "react-icons/fi";
 import ladyHero from "../assets/lady-hero.png";
 import GetStartedBtn from "../forms/get-started-popup";
 import OurMilestone from "../components/our-milestone";
 import LogoSlider from "../components/logo-slider";
+import Card from "../components/Card";
+import { MdModelTraining } from "react-icons/md";
+import { PiMonitorBold, PiStrategyDuotone } from "react-icons/pi";
+import { GiCloudRing } from "react-icons/gi";
+import { IoCodeSharp, IoDocument, IoSettings } from "react-icons/io5";
+import { SiAppstore } from "react-icons/si";
 
 function HomePage() {
+  const services = [
+    { title: "Cloud Advisory & Implementation",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <GiCloudRing />},
+    { title: "Project Management",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <IoDocument />},
+    { title: "IT Strategy",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <IoSettings />},
+    { title: "Service Desk Advisory",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <PiStrategyDuotone />},
+    { title: "Manage – IT Services",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <PiMonitorBold />},
+    { title: "SAP System Assessment",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <IoCodeSharp />},
+    { title: "SAP Technical & End-User Training",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <MdModelTraining />},
+    { title: "Digital Transformation", 
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <FiBriefcase />},
+    { title: "App Development",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      detailsLink: "#",
+      icon: <SiAppstore />},
+  ];
+
   return (
     <>
-      {/* Hero Section Content */}
-      <section className="min-h-full mt-16 px-10" style={{ backgroundColor: "#6496B3" }}>
-    {/* Hero Content */}
-    <div className=" mx-auto px-6 md:flex md:items-center"> {/* Set mt-0 here */}
-        <div className="md:w-1/2 text-white py-1">
+      {/* Hero Section */}
+      <section className="min-h-full pt-24 px-10 font-sans" style={{ backgroundColor: "#6496B3" }}>
+        <div className="mx-auto px-6 md:flex md:items-center">
+          {/* Hero Text */}
+          <div className="md:w-1/2 text-white py-1">
             <h1 className="text-5xl font-semibold mb-4 mt-14 text-black">
-                Ultimate IT Solutions for Modern Businesses
+              Ultimate IT Solutions for Modern Businesses
             </h1>
             <p className="mb-6">
-                Unleashing the Power of IT for a Smarter, Faster, and More
-                Efficient Enterprise. We are Your Trusted Partner in IT & SAP
-                Excellence – Stay Ahead, Stay Secure
+              Unleashing the Power of IT for a Smarter, Faster, and More Efficient Enterprise.
+              We are Your Trusted Partner in IT & SAP Excellence – Stay Ahead, Stay Secure.
             </p>
 
-            {/* List with Icons */}
-            <div className="mb-0 space-y-2">
+            {/* Feature List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
                 <div className="flex items-center">
-                    <FiArrowRightCircle className="text-sky-400 mr-2" />
-                    <span>Innovation, Optimization & Scalability</span>
+                  <FiArrowRightCircle className="text-[#102E7D] mr-2" />
+                  <span>Innovation, Optimization & Scalability</span>
                 </div>
                 <div className="flex items-center">
-                    <FiArrowRightCircle className="text-sky-400 mr-2" />
-                    <span>Business consulting</span>
+                  <FiArrowRightCircle className="text-[#102E7D] mr-2" />
+                  <span>Business Consulting</span>
                 </div>
                 <div className="flex items-center">
-                    <FiArrowRightCircle className="text-sky-400 mr-2" />
-                    <span>Maximum productivity and growth</span>
+                  <FiArrowRightCircle className="text-[#102E7D] mr-2" />
+                  <span>Business Excellence</span>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center">
+                  <FiArrowRightCircle className="text-[#102E7D] mr-2" />
+                  <span>Maximum Productivity & Growth</span>
                 </div>
                 <div className="flex items-center">
-                    <FiArrowRightCircle className="text-sky-400 mr-2" />
-                    <span>Business Excellence</span>
+                  <FiArrowRightCircle className="text-[#102E7D] mr-2" />
+                  <span>Digitalisation & Website Development</span>
                 </div>
-                <div className="flex items-center">
-                    <FiArrowRightCircle className="text-sky-400 mr-2" />
-                    <span>Digitalisation and website development</span>
-                </div>
-                <GetStartedBtn />
+              </div>
             </div>
-        </div>
 
-        {/* Hero Image */}
-        <div className="md:w-1/2 mt-0 h-full flex justify-center">
-            <img
-                src={ladyHero}
-                alt="avatar"
-                className="rounded-lg w-full h-auto flex max-h-lvh" 
-            />
+            {/* Get Started Button */}
+            <div className="mt-6">
+              <GetStartedBtn />
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="md:w-1/2 mt-0 h-full flex justify-center">
+            <img src={ladyHero} alt="avatar" className="rounded-lg w-[115%] h-auto flex max-h-lvh" />
+          </div>
         </div>
-    </div>
-</section>
+      </section>
+
+      {/* Milestone Section */}
       <div className="py-0 w-full">
         <OurMilestone />
       </div>
-      <section id="services" className="h-screen">
-        services
 
+      {/* Services Section */}
+      <section id="services" className="h-auto bg-[#F3F3F3] py-12 px-10">
+        <div className="container mx-auto px-6">
+          {/* Section Title */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-[#000D51]">
+              What services do we offer <br /> for your business
+            </h2>
+            <p className="text-gray-600 max-w-lg mt-2">
+              Unlock the full potential of your business with our expert IT solutions.
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                title={service.title}
+                description={service.description}
+                detailsLink={service.detailsLink}
+                icon={service.icon}
+              />
+            ))}
+          </div>
+        </div>
       </section>
+
+      {/* Video Section */}
       <div className="section h-full flex flex-col justify-center items-center mx-auto bg-[#97bbd0] py-7">
         <h1 className="text-center text-xl text-white font-bold mb-7">
-          UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-POWERED BUSINESS
-          SOLUTIONS
+          UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-POWERED BUSINESS SOLUTIONS
         </h1>
         <iframe
           width="60%"
@@ -80,6 +155,8 @@ function HomePage() {
           allowFullScreen
         ></iframe>
       </div>
+
+      {/* Logo Slider Section */}
       <LogoSlider />
     </>
   );

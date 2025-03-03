@@ -15,7 +15,7 @@ function GetStartedBtn() {
   };
 
   return (
-    <div className="relative justify-center items-center h-6 mb-14">
+    <div className="relative z-0 justify-center items-center h-6 mb-14">
       {/* Trigger Button */}
 
       <div className="relative inline-flex  group mt-1">

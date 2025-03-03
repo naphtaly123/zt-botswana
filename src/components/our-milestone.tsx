@@ -7,7 +7,7 @@ function OurMilestone() {
               <h2 className="text-4xl text-[#6496B3] md:text-5xl font-semibold text-center">
                 5+
               </h2>
-              <p className=" mb-2 text-center">Years Experiance</p>
+              <p className=" mb-2 text-center">Years Experience</p>
             </div>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/4 py-8">
@@ -15,7 +15,7 @@ function OurMilestone() {
               <h2 className="text-4xl text-[#6496B3] md:text-5xl  font-semibold text-center">
                 10+
               </h2>
-              <p className=" mb-2 text-center">Business Supported</p>
+              <p className=" mb-2 text-center">Businesses Supported</p>
             </div>
           </div>
           <div className="w-full md:w-1/2 lg:w-1/4 py-8">
