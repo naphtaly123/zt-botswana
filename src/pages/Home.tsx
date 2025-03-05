@@ -1,4 +1,4 @@
-import { FiArrowRightCircle, FiBriefcase,} from "react-icons/fi";
+import { FiArrowRightCircle, FiBriefcase } from "react-icons/fi";
 import ladyHero from "../assets/lady-hero.png";
 import GetStartedBtn from "../forms/get-started-popup";
 import OurMilestone from "../components/our-milestone";
@@ -9,6 +9,7 @@ import { PiMonitorBold, PiStrategyDuotone } from "react-icons/pi";
 import { GiCloudRing } from "react-icons/gi";
 import { IoCodeSharp, IoDocument, IoSettings } from "react-icons/io5";
 import { SiAppstore } from "react-icons/si";
+import OurSectors from "../components/our-sectors";
 
 function HomePage() {
   const services = [
@@ -50,14 +51,16 @@ function HomePage() {
       icon: <SiAppstore />},
   ];
 
+
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-full pt-24 px-10 font-sans" style={{ backgroundColor: "#6496B3" }}>
+      <section className="min-h-full pt-24 px-16 font-sans" style={{ backgroundColor: "#6496B3" }}>
         <div className="mx-auto px-6 md:flex md:items-center">
           {/* Hero Text */}
           <div className="md:w-1/2 text-white py-1">
-            <h1 className="text-5xl font-semibold mb-4 mt-14 text-black">
+            <h4>ZIMELE TECHNOLOGIES BOTSWANA</h4>
+            <h1 className="text-5xl font-semibold mb-4 mt-2 text-black">
               Ultimate IT Solutions for Modern Businesses
             </h1>
             <p className="mb-6">
@@ -116,16 +119,16 @@ function HomePage() {
         <div className="container mx-auto px-6">
           {/* Section Title */}
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-[#000D51]">
+            <h2 className="text-3xl font-semibold text-[#000D51] px-3">
               What services do we offer <br /> for your business
             </h2>
-            <p className="text-gray-600 max-w-lg mt-2">
+            <p className="text-gray-600 max-w-lg mt-2 px-3">
               Unlock the full potential of your business with our expert IT solutions.
             </p>
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-3">
             {services.map((service, index) => (
               <Card
                 key={index}
@@ -138,23 +141,26 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <OurSectors/>
 
       {/* Video Section */}
-      <div className="section h-full flex flex-col justify-center items-center mx-auto bg-[#97bbd0] py-7">
-        <h1 className="text-center text-xl text-white font-bold mb-7">
-          UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-POWERED BUSINESS SOLUTIONS
-        </h1>
-        <iframe
-          width="60%"
-          height="300"
-          src="https://www.youtube.com/embed/IQ8dW9_72fk?si=riA8CnPiAy0xBrFP"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      </div>
+      <section className="bg-[#6496B3] font-sans"> {/* Added sans-serif font */}
+        <div className="section h-full flex flex-col justify-center items-center mx-auto py-7">
+          <h1 className="text-center text-xl text-white font-semibold mb-7">
+            UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-<br></br>POWERED BUSINESS SOLUTIONS
+          </h1>
+          <iframe
+            width="60%"
+            height="500"
+            src="https://www.youtube.com/embed/IQ8dW9_72fk?si=riA8CnPiAy0xBrFP"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
 
       {/* Logo Slider Section */}
       <LogoSlider />

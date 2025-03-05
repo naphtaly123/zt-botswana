@@ -58,7 +58,7 @@ function AboutPage() {
               </div>
               <div className="mt-5">
                 <h3 className="text-lg font-medium text-gray-900">
-                  what we do
+                  What we do
                 </h3>
                 <p className="mt-2 text-base text-gray-500">
                   We aim to make the world a better place through innovation and
@@ -85,7 +85,7 @@ function AboutPage() {
               </div>
               <div className="mt-5">
                 <h3 className="text-lg font-medium text-gray-900">
-                  how we work
+                  How we work
                 </h3>
                 <p className="mt-2 text-base text-gray-500">
                   We believe in honesty, integrity, and respect for all
@@ -117,7 +117,7 @@ function AboutPage() {
               </div>
               <div className="mt-5 content-center justify-center">
                 <h3 className="text-lg font-medium text-gray-900">
-                  where we work
+                  Where we work
                 </h3>
                 <p className="mt-2 text-base text-gray-500">
                   We envision a world where technology is used to solve the most
