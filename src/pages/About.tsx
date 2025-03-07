@@ -2,8 +2,23 @@ import Faq from "../components/faq";
 import OurTeam from "../components/our-team";
 import md from "../assets/md.jpg";
 import team from "../assets/team.jpg";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function AboutPage() {
+  const location = useLocation();
+  useEffect(() => {
+
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <div className="relative z-0 bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
@@ -142,9 +157,9 @@ function AboutPage() {
           </div>
           <div className="flex flex-wrap items-center mt-16">
             <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-            <p className="inline-block px-0 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-            MANAGING DIRECTOR
-          </p>
+              <p className="inline-block px-0 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                MANAGING DIRECTOR
+              </p>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
                 ONKABETSE MONNAWAPULA
               </h3>
@@ -153,7 +168,7 @@ function AboutPage() {
                 any element. Just make sure you enable them first via
                 JavaScript.
               </p>
-        
+
               <a href="#" className="font-bold text-blueGray-700 mt-8">
                 Check Notus JS!
               </a>
@@ -165,7 +180,6 @@ function AboutPage() {
                   alt="avatar"
                   className=" w-full h-auto flex max-h-lvh"
                 />
-    
               </div>
             </div>
           </div>
@@ -173,8 +187,7 @@ function AboutPage() {
         <footer className="relative pt-8 pb-6 mt-8">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap items-center md:justify-between justify-center">
-              <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-              </div>
+              <div className="w-full md:w-6/12 px-4 mx-auto text-center"></div>
             </div>
           </div>
         </footer>
@@ -195,5 +208,3 @@ function AboutPage() {
   );
 }
 export default AboutPage;
-
-

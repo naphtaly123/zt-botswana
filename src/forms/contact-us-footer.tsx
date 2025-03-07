@@ -4,7 +4,6 @@ import { validateInput, validateEmail } from "./form-validations";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdErrorOutline } from "react-icons/md";
 
-
 function ContactUsFooter() {
   const [subject, setSubject] = useState<string>("");
   const [subjectVerify, setSubjectVerify] = useState<boolean>(false);
@@ -39,21 +38,32 @@ function ContactUsFooter() {
         alert("Please enter your email");
         return;
       }
-  
+
       const userData = {
         subject,
         email,
         message,
       };
-  
+
       // console.log("Sending data:", userData);
-  
+
       const response = await axios.post(
         "https://zt-botswana.onrender.com/mail/send-email/",
         userData
       );
       console.log("Response:", response.data);
       alert("Message sent successfully!");
+
+      // Clear the form after successful submission
+      setSubject("");
+      setSubjectVerify(false);
+
+      setEmail("");
+      setEmailVerify(false);
+
+      setMessage("");
+      setMessageVerify(false);
+
     } catch (error) {
       console.error("Error:", error); // Log the full error
       alert("An error occurred while sending the message.");
@@ -82,7 +92,6 @@ function ContactUsFooter() {
             <IoMdCheckmarkCircleOutline />
           ) : (
             <MdErrorOutline />
-
           )}
 
           {subject.length < 1 ? null : subjectVerify ? null : (
@@ -95,7 +104,6 @@ function ContactUsFooter() {
               Subject too short.
             </p>
           )}
-          
         </div>
       </div>
       <div className="w-full p-1">
@@ -125,7 +133,6 @@ function ContactUsFooter() {
               not a valid email address.
             </p>
           )}
-
         </div>
       </div>
       <div className="mt-2 w-full p-1">
@@ -154,7 +161,6 @@ function ContactUsFooter() {
               Message short.
             </p>
           )}
-
         </div>
       </div>
       <div className="w-full p-1">
