@@ -8,16 +8,16 @@ function Footer() {
     <>
       <footer id="footer">
         <div className="bg-gray-90 py-4 text-black">
-          <div className="container px-10 mx-auto">
-            <div className="-mx-4 flex flex-wrap justify-between">
+          <div className="container px-0 mx-auto">
+            <div className="mx-2 flex flex-wrap justify-between">
               <div className="px-0 my-4 w-full xl:w-1/5">
               <Link to="/">
-          <img src={logo} alt="Logo" className="h-12 mx-6" />
+          <img src={logo} alt="Logo" className="h-12 mx-0 mb-3" />
           </Link>
                 {/* <a href="/" className="block w-56 mb-10 text-white font-semibold">
                   Zimele Technologies Botswana
                 </a> */}
-                <p className="text-justify" >
+                <p className="text-justify mb-3" >
                   Tailwindow is a collection of UI Components created using
                   Tailwind CSS Framework. The UI Components gives you all of the
                   building blocks you need to build any designs without any

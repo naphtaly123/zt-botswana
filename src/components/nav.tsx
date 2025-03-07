@@ -23,13 +23,13 @@ function Nav() {
             <Link to="/" className="text-white hover:text-gray-300 text-xl">
               Home
             </Link>
-            <Link to="/ #services" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/#services" className="text-white hover:text-gray-300 text-xl">
               Services
             </Link>
             <Link to="/about" className="text-white hover:text-gray-300 text-xl">
               About
             </Link>
-            <Link to="/about #footer" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/about#footer" className="text-white hover:text-gray-300 text-xl">
               Contact
             </Link>
           </div>
