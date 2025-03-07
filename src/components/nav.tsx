@@ -11,7 +11,7 @@ function Nav() {
 
   return (
     <>
-      <header className="py-5 fixed w-full top-0 z-10" style={{ backgroundColor: "#6496B3" }}>
+      <header className="py-5 fixed w-full top-0 z-10 px-10" style={{ backgroundColor: "#6496B3" }}>
         <nav className="container mx-10 justify-between items-center flex">
           {/* Logo */}
           <Link to="/">
@@ -23,13 +23,13 @@ function Nav() {
             <Link to="/" className="text-white hover:text-gray-300 text-xl">
               Home
             </Link>
-            <Link to="#services" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/ #services" className="text-white hover:text-gray-300 text-xl">
               Services
             </Link>
             <Link to="/about" className="text-white hover:text-gray-300 text-xl">
               About
             </Link>
-            <Link to="#footer" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/about #footer" className="text-white hover:text-gray-300 text-xl">
               Contact
             </Link>
           </div>
@@ -57,9 +57,9 @@ function Nav() {
               <Link to="/" className="text-white hover:text-gray-300">
                 Home
               </Link>
-              <a href="#services" className="text-white hover:text-gray-300">
+              <Link to="#services" className="text-white hover:text-gray-300">
                 Services
-              </a>
+              </Link>
               <Link to="/about" className="text-white hover:text-gray-300">
                 About
               </Link>

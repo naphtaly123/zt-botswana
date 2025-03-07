@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ContactUsFooter from "../forms/contact-us-footer.tsx";
 import logo from "../assets/logo.png";
 function Footer() {
+  const {id} = useParams();
+
   return (
     <>
       <footer id="footer">
         <div className="bg-gray-90 py-4 text-black">
-          <div className="container px-0 mx-auto">
+          <div className="container px-10 mx-auto">
             <div className="-mx-4 flex flex-wrap justify-between">
               <div className="px-0 my-4 w-full xl:w-1/5">
               <Link to="/">
@@ -15,11 +17,11 @@ function Footer() {
                 {/* <a href="/" className="block w-56 mb-10 text-white font-semibold">
                   Zimele Technologies Botswana
                 </a> */}
-                <p className="text-justify">
+                <p className="text-justify" >
                   Tailwindow is a collection of UI Components created using
                   Tailwind CSS Framework. The UI Components gives you all of the
                   building blocks you need to build any designs without any
-                  annoying opinionated styles you have to fight to override.
+                  annoying opinionated styles you have to fight to override. {id}
                 </p>
 
                 <a
@@ -64,7 +66,7 @@ function Footer() {
 
               </div>
 
-              <div className="px-4 my-4 w-full sm:w-auto">
+              <div className="px-1 my-4 w-full sm:w-auto">
                 <div>
                   <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">
                     Useful links
