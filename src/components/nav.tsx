@@ -35,7 +35,7 @@ function Nav() {
           </div>
 
           {/* Get in Touch Button */}
-          <button className="bg-white text-[#6496B3] border border-white px-6 mx-8 py-2 rounded transition duration-300 ease-in-out hover:bg-sky-400 hover:shadow-lg hover:scale-105">
+          <button className="bg-white text-[#6496B3] sm:text-sm border-white px-6 mx-8 py-2 rounded transition duration-300 ease-in-out hover:bg-sky-400 hover:shadow-lg hover:scale-105">
             Get in Touch
           </button>
 
