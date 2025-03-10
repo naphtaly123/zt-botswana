@@ -5,6 +5,10 @@
 body::-webkit-scrollbar {
     display: none; /* For Chrome, Safari, and Opera */
 }
+html {
+    scroll-behavior: smooth;
+  }
+
 /* Custom CSS for Logo Slider Animation */
 
 @keyframes loop-scroll {
