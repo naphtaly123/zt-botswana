@@ -16,8 +16,6 @@ import { useEffect } from "react";
 function HomePage() {
   const location = useLocation();
   useEffect(() => {
-
-
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
@@ -27,6 +25,7 @@ function HomePage() {
       }
     }
   }, [location]);
+
   const services = [
     {
       title: "Cloud Advisory & Implementation",
@@ -85,7 +84,7 @@ function HomePage() {
       icon: <FiBriefcase />,
     },
     {
-      title: "App Development",
+      title: "Software Development",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
       detailsLink: "#",
@@ -96,11 +95,11 @@ function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section
+      <section 
         className="min-h-full pt-24 px-16 font-sans"
         style={{ backgroundColor: "#6496B3" }}
       >
-        <div className="mx-auto px-6 md:flex md:items-center">
+        <div className="mx-auto px-6 md:flex md:items-center" id="hero">
           {/* Hero Text */}
           <div className="md:w-1/2 text-white py-1">
             <h4>ZIMELE TECHNOLOGIES BOTSWANA</h4>
@@ -118,25 +117,25 @@ function HomePage() {
               <div>
                 <div className="flex items-center">
                   <FiArrowRightCircle className="text-[#102E7D] mr-2" />
-                  <span>Innovation, Optimization & Scalability</span>
+                  <span>ERP Advisory and Quality Assurance</span>
                 </div>
                 <div className="flex items-center">
                   <FiArrowRightCircle className="text-[#102E7D] mr-2" />
-                  <span>Business Consulting</span>
+                  <span>ERP Application Management (support)</span>
                 </div>
                 <div className="flex items-center">
                   <FiArrowRightCircle className="text-[#102E7D] mr-2" />
-                  <span>Business Excellence</span>
+                  <span>ERP Implementations</span>
                 </div>
               </div>
               <div>
                 <div className="flex items-center">
                   <FiArrowRightCircle className="text-[#102E7D] mr-2" />
-                  <span>Maximum Productivity & Growth</span>
+                  <span>ERP Upgrade Services</span>
                 </div>
                 <div className="flex items-center">
                   <FiArrowRightCircle className="text-[#102E7D] mr-2" />
-                  <span>Digitalisation & Website Development</span>
+                  <span>Business Consulting Services</span>
                 </div>
               </div>
             </div>
@@ -178,13 +177,13 @@ function HomePage() {
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-3 align-items-start">
             {services.map((service, index) => (
               <Card
                 key={index}
                 title={service.title}
                 description={service.description}
-                detailsLink={service.detailsLink}
+                // detailsLink={service.detailsLink}
                 icon={service.icon}
               />
             ))}

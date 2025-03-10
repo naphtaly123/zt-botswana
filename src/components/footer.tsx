@@ -2,30 +2,34 @@ import { Link, useParams } from "react-router-dom";
 import ContactUsFooter from "../forms/contact-us-footer.tsx";
 import logo from "../assets/logo.png";
 function Footer() {
-  const {id} = useParams();
+  const { id } = useParams();
 
   return (
     <>
       <footer id="footer">
-        <div className="bg-gray-90 py-4 text-black">
-          <div className="container px-0 mx-auto">
+        <section className="bg-gray-90 py-4 text-black">
+          <div className="px-14 mx-auto">
             <div className="mx-2 flex flex-wrap justify-between">
               <div className="px-0 my-4 w-full xl:w-1/5">
-              <Link to="/">
-          <img src={logo} alt="Logo" className="h-12 mx-0 mb-3" />
-          </Link>
+                <Link to="/">
+                  <img src={logo} alt="Logo" className="h-12 mx-0 mb-3" />
+                </Link>
                 {/* <a href="/" className="block w-56 mb-10 text-white font-semibold">
                   Zimele Technologies Botswana
                 </a> */}
-                <p className="text-justify mb-3" >
-                  Tailwindow is a collection of UI Components created using
-                  Tailwind CSS Framework. The UI Components gives you all of the
-                  building blocks you need to build any designs without any
-                  annoying opinionated styles you have to fight to override. {id}
+                <p className="text-justify">The Office Fairgrounds {id}</p>
+                <p className="text-justify">Plot 64517, Unit 68 {id}</p>
+                <p className="text-justify">Fairgrounds Park,{id}</p>
+                <p className="text-justify">1609 Gaborone {id}</p>
+                <p className="text-justify">Botswana</p>
+                <p className="text-justify mb-3">
+                  (267) 3980469 / 3980416, (27) 630593833
                 </p>
 
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=100065402172648"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-8 w-8 border border-gray-500 rounded-full mr-1 hover:text-blue-400 hover:border-blue-400"
                 >
                   <svg
@@ -35,7 +39,7 @@ function Footer() {
                   >
                     <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
                   </svg>
-                </a> 
+                </a>
 
                 <a
                   href="#"
@@ -62,8 +66,6 @@ function Footer() {
                     <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
                   </svg>
                 </a>
-
-
               </div>
 
               <div className="px-1 my-4 w-full sm:w-auto">
@@ -74,17 +76,17 @@ function Footer() {
                 </div>
                 <ul className="leading-8">
                   <li>
-                    <Link to="/" className="hover:text-blue-400">
+                    <Link to="/#hero" className="hover:text-blue-400">
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="hover:text-blue-400">
+                    <Link to="/#services" className="hover:text-blue-400">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" className="hover:text-blue-400">
+                    <Link to="/about#_" className="hover:text-blue-400">
                       About
                     </Link>
                   </li>
@@ -98,29 +100,29 @@ function Footer() {
                 </div>
                 <ul className="leading-8">
                   <li>
-                    <a href="#" className="hover:text-blue-400">
-                      Getting Started With HTML and CSS
-                    </a>
+                    <p className="hover:text-blue-400">
+                      SAP ERP
+                    </p>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-blue-400">
-                      What Is Flex And When to Use It?
-                    </a>
+                    <p className="hover:text-blue-400">
+                      Cloud Advisory and implementation
+                    </p>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-blue-400">
-                      How TailwindCSS Can Help Your Productivity?
-                    </a>
+                    <p className="hover:text-blue-400">
+                      System Assesments
+                    </p>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-blue-400">
-                      5 Tips to Make Responsive Website
-                    </a>
+                    <p className="hover:text-blue-400">
+                      EA Review and Implementation
+                    </p>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-blue-400">
+                    <Link to="/#services" className="hover:text-blue-400 text-blue-950">
                       See More
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -128,10 +130,9 @@ function Footer() {
               <div className="px-4 my-4 w-full sm:w-auto">
                 <ContactUsFooter />
               </div>
-              
             </div>
           </div>
-        </div>
+        </section>
         <div className="bg-[#6496B3] py-4 text-gray-100">
           <div className="container mx-auto px-4 text-center">
             Copyright © 2025 Zimele Technologies Botswana. All Rights Reserved.

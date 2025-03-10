@@ -11,7 +11,7 @@ function Nav() {
 
   return (
     <>
-      <header className="py-5 fixed w-full top-0 z-10 px-10" style={{ backgroundColor: "#6496B3" }}>
+      <header className="py-5 fixed w-full top-0 z-20 px-10" style={{ backgroundColor: "#6496B3" }}>
         <nav className="container mx-10 justify-between items-center flex">
           {/* Logo */}
           <Link to="/">
@@ -20,13 +20,13 @@ function Nav() {
 
           {/* Nav Links */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/#" className="text-white hover:text-gray-300 text-xl">
               Home
             </Link>
             <Link to="/#services" className="text-white hover:text-gray-300 text-xl">
               Services
             </Link>
-            <Link to="/about" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/about#_" className="text-white hover:text-gray-300 text-xl">
               About
             </Link>
             <Link to="/about#footer" className="text-white hover:text-gray-300 text-xl">
@@ -35,9 +35,9 @@ function Nav() {
           </div>
 
           {/* Get in Touch Button */}
-          <button className="bg-white text-[#6496B3] sm:text-sm border-white px-6 mx-8 py-2 rounded transition duration-300 ease-in-out hover:bg-sky-400 hover:shadow-lg hover:scale-105">
+          <Link to="/about#footer" className="bg-white text-[#6496B3] sm:text-sm border-white px-6 mx-8 py-2 rounded transition duration-300 ease-in-out hover:bg-sky-400 hover:shadow-lg hover:scale-105">
             Get in Touch
-          </button>
+          </Link>
 
           {/* Hamburger Menu (Mobile) */}
           <button
