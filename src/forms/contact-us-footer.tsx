@@ -48,7 +48,7 @@ function ContactUsFooter() {
       // console.log("Sending data:", userData);
 
       const response = await axios.post(
-        "https://zt-botswana.onrender.com/mail/send-email/",
+        "http://127.0.0.1:8000/mail/send-email/",
         userData
       );
       console.log("Response:", response.data);

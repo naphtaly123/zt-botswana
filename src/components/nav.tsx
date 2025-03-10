@@ -15,11 +15,11 @@ function Nav() {
         <nav className="container mx-10 justify-between items-center flex">
           {/* Logo */}
           <Link to="/">
-          <img src={logo} alt="Logo" className="h-12 mx-6" />
+          <img src={logo} alt="Logo" className="h-12 mx-6 w-36" />
           </Link>
 
           {/* Nav Links */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-9">
             <Link to="/#" className="text-white hover:text-gray-300 text-xl">
               Home
             </Link>
@@ -29,9 +29,9 @@ function Nav() {
             <Link to="/about#_" className="text-white hover:text-gray-300 text-xl">
               About
             </Link>
-            <Link to="/about#footer" className="text-white hover:text-gray-300 text-xl">
+            {/* <Link to="/about#footer" className="text-white hover:text-gray-300 text-xl">
               Contact
-            </Link>
+            </Link> */}
           </div>
 
           {/* Get in Touch Button */}
