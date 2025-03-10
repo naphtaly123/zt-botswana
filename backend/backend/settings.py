@@ -46,6 +46,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://zimele-technologies-botswana.onrender.com/",
+    "https://render.zimele.co.bw"
 ]
 
 ROOT_URLCONF = 'backend.urls'
