@@ -1,145 +1,129 @@
 import { Link, useParams } from "react-router-dom";
 import ContactUsFooter from "../forms/contact-us-footer.tsx";
 import logo from "../assets/logo.png";
+
 function Footer() {
   const { id } = useParams();
 
   return (
-    <>
-      <footer id="footer">
-        <section className="bg-gray-90 py-4 text-black">
-          <div className="px-14 mx-auto">
-            <div className="mx-2 flex flex-wrap justify-between">
-              <div className="px-0 my-4 w-full xl:w-1/5">
-                <Link to="/">
-                  <img src={logo} alt="Logo" className="h-12 mx-0 mb-3" />
-                </Link>
-                {/* <a href="/" className="block w-56 mb-10 text-white font-semibold">
-                  Zimele Technologies Botswana
-                </a> */}
-                <p className="text-justify">The Office Fairgrounds {id}</p>
-                <p className="text-justify">Plot 64517, Unit 68 {id}</p>
-                <p className="text-justify">Fairgrounds Park,{id}</p>
-                <p className="text-justify">1609 Gaborone {id}</p>
-                <p className="text-justify">Botswana</p>
-                <p className="text-justify mb-3">
-                  (267) 3980469 / 3980416, (27) 630593833
-                </p>
+    <footer id="footer" className="font-sans">
+      <section className="bg-gray-100 text-gray-800 py-8">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+          {/* Logo + Address */}
+          <div className="text-[15px] font-semibold">
+            <Link to="/">
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-10 mb-3 hover:scale-105 transition-transform"
+              />
+            </Link>
+            <p className="leading-relaxed">
+              Sunshine Office Park, Fairgrounds{id}<br />
+              Plot 50361, Block C <br />
+              Gaborone<br />
+              Botswana
+            </p>
+            <p className="mt-2">
+              (+267) 3980469 | 3980416<br />
+              (+27) 630593833
+            </p>
 
-                <a
-                  href="https://www.facebook.com/profile.php?id=100065402172648"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-8 w-8 border border-gray-500 rounded-full mr-1 hover:text-blue-400 hover:border-blue-400"
-                >
-                  <svg
-                    className="w-4 h-4 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 320 512"
-                  >
-                    <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
-                  </svg>
-                </a>
-
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center h-8 w-8 border border-gray-500 rounded-full mr-1 hover:text-blue-400 hover:border-blue-400"
-                >
-                  <svg
-                    className="w-4 h-4 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"
-                  >
-                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-                  </svg>
-                </a>
-
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center h-8 w-8 border border-gray-500 rounded-full mr-1 hover:text-blue-400 hover:border-blue-400"
-                >
-                  <svg
-                    className="w-4 h-4 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  >
-                    <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
-                  </svg>
-                </a>
-              </div>
-
-              <div className="px-1 my-4 w-full sm:w-auto">
-                <div>
-                  <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">
-                    Useful links
-                  </h2>
-                </div>
-                <ul className="leading-8">
-                  <li>
-                    <Link to="/#hero" className="hover:text-blue-400">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/#services" className="hover:text-blue-400">
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/about#_" className="hover:text-blue-400">
-                      About
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="px-4 my-4 w-full sm:w-auto">
-                <div>
-                  <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">
-                    Services
-                  </h2>
-                </div>
-                <ul className="leading-8">
-                  <li>
-                    <p className="hover:text-blue-400">
-                      SAP ERP
-                    </p>
-                  </li>
-                  <li>
-                    <p className="hover:text-blue-400">
-                      Cloud Advisory and implementation
-                    </p>
-                  </li>
-                  <li>
-                    <p className="hover:text-blue-400">
-                      System Assesments
-                    </p>
-                  </li>
-                  <li>
-                    <p className="hover:text-blue-400">
-                      EA Review and Implementation
-                    </p>
-                  </li>
-                  <li>
-                    <Link to="/#services" className="hover:text-blue-400 text-blue-950">
-                      See More
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="px-4 my-4 w-full sm:w-auto">
-                <ContactUsFooter />
-              </div>
+            {/* Social Icons */}
+            <div className="flex mt-4 space-x-3 text-[16px]">
+              <a
+                href="https://www.facebook.com/profile.php?id=100065402172648"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <i className="fab fa-facebook-f text-lg"></i>
+              </a>
+              <a
+                href="#"
+                className="text-gray-600 hover:text-pink-500 transition-colors"
+              >
+                <i className="fab fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="#"
+                className="text-gray-600 hover:text-blue-400 transition-colors"
+              >
+                <i className="fab fa-twitter text-lg"></i>
+              </a>
             </div>
           </div>
-        </section>
-        <div className="bg-[#6496B3] py-4 text-gray-100">
-          <div className="container mx-auto px-4 text-center">
-            Copyright © 2025 Zimele Technologies Botswana. All Rights Reserved.
+
+          {/* Useful Links */}
+          <div>
+            <h2 className="text-lg font-semibold text-blue-700 mb-4">
+              Useful Links
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  to="/#hero"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/#services"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about#_"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h2 className="text-lg font-semibold text-blue-700 mb-4">
+              Services
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>SAP ERP</li>
+              <li>Cloud Advisory & Implementation</li>
+              <li>System Assessments</li>
+              <li>EA Review & Implementation</li>
+              <li>
+                <Link
+                  to="/#services"
+                  className="text-blue-600 hover:underline"
+                >
+                  See More
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h2 className="text-lg font-semibold text-blue-700 mb-4">
+              Contact Us
+            </h2>
+            <ContactUsFooter />
           </div>
         </div>
-      </footer>
-    </>
+      </section>
+
+      {/* Bottom Bar */}
+      <div className="bg-blue-700 text-white py-3 text-center text-sm">
+        © 2025 Zimele Technologies Botswana. All rights reserved.
+      </div>
+    </footer>
   );
 }
+
 export default Footer;

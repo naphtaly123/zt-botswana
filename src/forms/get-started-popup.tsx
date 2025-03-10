@@ -3,83 +3,78 @@ import axios from "axios";
 import { validateInput, validateEmail } from "./form-validations";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdErrorOutline } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
 function GetStartedBtn() {
-  // State to manage modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
-  // Function to open the modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const [subject, setSubject] = useState("");
+  const [subjectVerify, setSubjectVerify] = useState(false);
 
-  // Function to close the modal
+  const [email, setEmail] = useState("");
+  const [emailVerify, setEmailVerify] = useState(false);
+
+  const [message, setMessage] = useState("");
+  const [messageVerify, setMessageVerify] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
   const closeModal = () => {
     setIsModalOpen(false);
+    setApiError(null); // Clear API errors when modal closes
   };
 
-  //Vars
-  const [subject, setSubject] = useState<string>("");
-  const [subjectVerify, setSubjectVerify] = useState<boolean>(false);
-
-  const [email, setEmail] = useState<string>("");
-  const [emailVerify, setEmailVerify] = useState<boolean>(false);
-
-  const [message, setMessage] = useState<string>("");
-  const [messageVerify, setMessageVerify] = useState<boolean>(false);
-
   const handleSubject = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const subjectVar = e.target.value;
-    setSubject(subjectVar);
-    setSubjectVerify(validateInput(subjectVar, 2));
+    const value = e.target.value;
+    setSubject(value);
+    setSubjectVerify(validateInput(value, 2));
   };
 
   const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const emailVar = e.target.value;
-    setEmail(emailVar);
-    setEmailVerify(validateEmail(emailVar));
+    const value = e.target.value;
+    setEmail(value);
+    setEmailVerify(validateEmail(value));
   };
 
   const handleMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const msgVar = e.target.value;
-    setMessage(msgVar);
-    setMessageVerify(validateInput(msgVar, 2));
+    const value = e.target.value;
+    setMessage(value);
+    setMessageVerify(validateInput(value, 2));
   };
 
   const handleSubmit = async () => {
+    if (!emailVerify || !subjectVerify || !messageVerify) {
+      alert("Please fill out all fields correctly.");
+      return;
+    }
+
+    setIsLoading(true);
+    setApiError(null);
+
     try {
-      if (!email) {
-        alert("Please enter your email");
-        return;
-      }
-
-      const userData = {
-        subject,
-        email,
-        message,
-      };
-
-      // console.log("Sending data:", userData);
-
+      const userData = { subject, email, message };
       const response = await axios.post(
         "https://zt-botswana.onrender.com/mail/send-email/",
         userData
       );
+
       console.log("Response:", response.data);
       alert("Message sent successfully!");
 
-      // Clear the form after successful submission
+      // Reset form
       setSubject("");
       setSubjectVerify(false);
-
       setEmail("");
       setEmailVerify(false);
-
       setMessage("");
       setMessageVerify(false);
+      closeModal(); // Close modal after successful submission
     } catch (error) {
-      console.error("Error:", error); // Log the full error
-      alert("An error occurred while sending the message.");
+      console.error("Error:", error);
+      setApiError("An error occurred while sending the message.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -91,26 +86,35 @@ function GetStartedBtn() {
         <button
           id="openContactForm"
           className="relative inline-flex items-center justify-center px-8 py-4 text-xl font-bold text-[#6496B3] transition-all duration-200 bg-white font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100"
-          onClick={openModal} // Trigger openModal on click
+          onClick={openModal}
         >
           Get Started
         </button>
       </div>
 
       {/* Modal */}
-      {isModalOpen && (
-        <div
-          id="contactFormModal"
-          className="fixed z-10 inset-0 overflow-y-auto"
-        >
-          <div className="flex items-center justify-center min-h-screen">
-            <div className="bg-white w-1/2 p-6 rounded shadow-md">
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            id="contactFormModal"
+            className="fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="bg-white/20 backdrop-blur-lg rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 border border-white/10"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -50, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="flex justify-end">
-                {/* Close Button */}
                 <button
                   id="closeContactForm"
                   className="text-gray-700 hover:text-red-500"
-                  onClick={closeModal} // Trigger closeModal on click
+                  onClick={closeModal}
                 >
                   <svg
                     className="w-6 h-6"
@@ -128,15 +132,16 @@ function GetStartedBtn() {
                   </svg>
                 </button>
               </div>
-              <section className="py-6  dark:text-gray-900">
+              <section className="py-6">
                 <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
+                  {/* Contact Information */}
                   <div className="py-6 md:py-0 md:px-6">
-                    <h1 className="text-4xl font-bold">Get in touch</h1>
-                    <p className="pt-2 pb-4">
-                      Does your business want SAP/IT solutions or you are not
-                      sure? Fill the form for more information.
+                    <h1 className="text-4xl font-bold text-white">Get in touch</h1>
+                    <p className="pt-2 pb-4 text-gray-200">
+                      Does your business need SAP/IT solutions or you are not sure?
+                      Fill the form for more information.
                     </p>
-                    <div className="space-y-4">
+                    <div className="space-y-4 text-gray-200">
                       <p className="flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -150,15 +155,7 @@ function GetStartedBtn() {
                             clipRule="evenodd"
                           ></path>
                         </svg>
-                        <span>
-                          <p className="text-justify">
-                            Plot 64517 Unit 68, Fairgrounds
-                          </p>
-                          <p className="text-justify">
-                            {" "}
-                            Park 1609 Gaborone, Botswana
-                          </p>
-                        </span>
+                        <span>Sunshine Office Park, Plot 50361 Block C , Fairgrounds, Gaborone, Botswana</span>
                       </p>
                       <p className="flex items-center">
                         <svg
@@ -182,108 +179,90 @@ function GetStartedBtn() {
                           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                         </svg>
                         <span>
-                          <a href="mailto:info@zimele.co.bw">
-                            info@zimele.co.bw
-                          </a>
+                          <a href="mailto:info@zimele.co.bw">info@zimele.co.bw</a>
                         </span>
                       </p>
                     </div>
                   </div>
+                  {/* Form */}
                   <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
-                    <label className="block">
-                      <span className="mb-1">Subject</span>
+                    <div className="relative">
                       <input
                         type="text"
                         id="subject"
                         name="subject"
                         onChange={handleSubject}
-                        placeholder="Want to get started"
-                        className="block h-13 w-full rounded-md shadow-sm bg-gray-100 bg-opacity-40 py-1 px-3 text-base leading-8 outline-none transition-colors duration-200 ease-in-out"
+                        placeholder="subject"
+                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
-                      {subject.length < 1 ? null : subjectVerify ? (
-                        <IoMdCheckmarkCircleOutline />
-                      ) : (
-                        <MdErrorOutline />
+                      
+                      {subject.length > 0 && (
+                        <div className="absolute right-4 top-3">
+                          {subjectVerify ? (
+                            <IoMdCheckmarkCircleOutline className="text-green-500" />
+                          ) : (
+                            <MdErrorOutline className="text-red-500" />
+                          )}
+                        </div>
                       )}
-
-                      {subject.length < 1 ? null : subjectVerify ? null : (
-                        <p
-                          style={{
-                            marginLeft: 20,
-                            color: "red",
-                          }}
-                        >
-                          Subject too short.
-                        </p>
-                      )}
-                    </label>
-                    <label className="block">
-                      <span className="mb-1">Company email</span>
+                    </div>
+                    <div className="relative">
                       <input
                         type="email"
                         id="email"
                         name="email"
                         onChange={handleEmail}
-                        placeholder="company@domain.com"
-                        className="block h-13 w-full rounded-md shadow-sm bg-gray-100 bg-opacity-40 py-1 px-3 text-base leading-8 outline-none transition-colors duration-200 ease-in-out"
+                        placeholder="enter your email"
+                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
-                      {email.length < 1 ? null : emailVerify ? (
-                        <IoMdCheckmarkCircleOutline />
-                      ) : (
-                        <MdErrorOutline />
+                      
+                      {email.length > 0 && (
+                        <div className="absolute right-4 top-3">
+                          {emailVerify ? (
+                            <IoMdCheckmarkCircleOutline className="text-green-500" />
+                          ) : (
+                            <MdErrorOutline className="text-red-500" />
+                          )}
+                        </div>
                       )}
-
-                      {email.length < 1 ? null : emailVerify ? null : (
-                        <p
-                          style={{
-                            marginLeft: 20,
-                            color: "red",
-                          }}
-                        >
-                          not a valid email address.
-                        </p>
-                      )}
-                    </label>
-                    <label className="block">
-                      <span className="mb-1">Message</span>
+                    </div>
+                    <div className="relative">
                       <textarea
-                        placeholder="message"
                         id="message"
                         name="message"
                         onChange={handleMessage}
-                        className="block w-full rounded-md shadow-sm bg-gray-100 bg-opacity-40 outline-none py-1 px-3"
+                        placeholder="message"
+                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       ></textarea>
-                      {message.length < 1 ? null : messageVerify ? (
-                        <IoMdCheckmarkCircleOutline />
-                      ) : (
-                        <MdErrorOutline />
+                      
+                      {message.length > 0 && (
+                        <div className="absolute right-4 top-3">
+                          {messageVerify ? (
+                            <IoMdCheckmarkCircleOutline className="text-green-500" />
+                          ) : (
+                            <MdErrorOutline className="text-red-500" />
+                          )}
+                        </div>
                       )}
-
-                      {message.length < 1 ? null : messageVerify ? null : (
-                        <p
-                          style={{
-                            marginLeft: 20,
-                            color: "red",
-                          }}
-                        >
-                          Message short.
-                        </p>
-                      )}
-                    </label>
+                    </div>
+                    {apiError && (
+                      <p className="text-red-500 text-center">{apiError}</p>
+                    )}
                     <button
                       type="button"
                       onClick={handleSubmit}
-                      className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-600 dark:text-gray-50 focus:dark:ring-violet-600 hover:dark:ring-violet-600"
+                      disabled={isLoading}
+                      className="self-center px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-purple-600 hover:to-blue-500 transition-all duration-300 hover:shadow-lg"
                     >
-                      Submit
+                      {isLoading ? "Sending..." : "Submit"}
                     </button>
                   </form>
                 </div>
               </section>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

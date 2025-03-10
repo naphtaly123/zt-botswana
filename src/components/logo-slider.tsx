@@ -14,8 +14,8 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6 ,logo7,logo8, logo9, log
 
 const LogoSlider = () => {
     return (
-        <div className="overflow-hidden">
-            <h1 className='text-center text-lg mt-2 py-6'>OUR PARTNERS</h1>
+        <div className="overflow-hidden py-7">
+            <h1 className='text-center text-lg mt-2 py-6'>OUR CLIENTS</h1>
             <div className="flex animate-loop-scroll hover:paused">
                 {/* First set of logos */}
                 {logos.map((logo, index) => (
