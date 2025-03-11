@@ -1,6 +1,7 @@
 import { FiArrowRightCircle, FiBriefcase } from "react-icons/fi";
 import ladyHero from "../assets/lady-hero.png";
-import GetStartedBtn from "../forms/get-started-popup";
+import sapSilver from "../assets/SAP-Silver.png";
+// import GetStartedBtn from "../forms/get-started-popup";
 import OurMilestone from "../components/our-milestone";
 import LogoSlider from "../components/logo-slider";
 import Card from "../components/Card";
@@ -141,8 +142,13 @@ function HomePage() {
             </div>
 
             {/* Get Started Button */}
-            <div className="mt-6">
-              <GetStartedBtn />
+            <div className="mt-6 bg-transparent">
+            <img
+              src={sapSilver}
+              alt="avatar"
+              className="rounded-lg w-36 h-auto flex max-h-lvh bg-transparent"
+              style={{ background: 'none' }}
+            />              
             </div>
           </div>
 

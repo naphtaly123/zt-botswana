@@ -79,17 +79,24 @@ function GetStartedBtn() {
   };
 
   return (
-    <div className="relative z-10 justify-center items-center h-6 mb-14 text-black">
+    <div className="relative z-10 justify-center items-center h-6 mb-5 text-black">
       {/* Trigger Button */}
       <div className="relative inline-flex group mt-1">
         <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#bbcde8] to-[#Fff] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
         <button
           id="openContactForm"
-          className="relative inline-flex items-center justify-center px-8 py-4 text-xl font-bold text-[#6496B3] transition-all duration-200 bg-white font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100"
+          className="relative inline-flex items-center justify-center px-2 py-1 text-lg text-[#6496B3] transition-all duration-200 bg-white font-pj rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100"
           onClick={openModal}
         >
-          Get Started
+          Get in Touch
         </button>
+        {/* <button
+        id="openContactForm"
+          onClick={openModal}
+          className="bg-white text-[#6496B3] sm:text-sm border-white px-6 mx-8 py-2 rounded transition duration-300 ease-in-out hover:bg-sky-400 hover:shadow-lg hover:scale-105"
+        >
+          Get in Touch
+        </button> */}
       </div>
 
       {/* Modal */}
@@ -136,10 +143,12 @@ function GetStartedBtn() {
                 <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                   {/* Contact Information */}
                   <div className="py-6 md:py-0 md:px-6">
-                    <h1 className="text-4xl font-bold text-white">Get in touch</h1>
+                    <h1 className="text-4xl font-bold text-white">
+                      Get in touch
+                    </h1>
                     <p className="pt-2 pb-4 text-gray-200">
-                      Does your business need SAP/IT solutions or you are not sure?
-                      Fill the form for more information.
+                      Does your business need SAP/IT solutions or you are not
+                      sure? Fill the form for more information.
                     </p>
                     <div className="space-y-4 text-gray-200">
                       <p className="flex items-center">
@@ -155,7 +164,10 @@ function GetStartedBtn() {
                             clipRule="evenodd"
                           ></path>
                         </svg>
-                        <span>Sunshine Office Park, Plot 50361 Block C , Fairgrounds, Gaborone, Botswana</span>
+                        <span>
+                          Sunshine Office Park, Plot 50361 Block C ,
+                          Fairgrounds, Gaborone, Botswana
+                        </span>
                       </p>
                       <p className="flex items-center">
                         <svg
@@ -179,7 +191,9 @@ function GetStartedBtn() {
                           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                         </svg>
                         <span>
-                          <a href="mailto:info@zimele.co.bw">info@zimele.co.bw</a>
+                          <a href="mailto:info@zimele.co.bw">
+                            info@zimele.co.bw
+                          </a>
                         </span>
                       </p>
                     </div>
@@ -195,7 +209,7 @@ function GetStartedBtn() {
                         placeholder="subject"
                         className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
-                      
+
                       {subject.length > 0 && (
                         <div className="absolute right-4 top-3">
                           {subjectVerify ? (
@@ -215,7 +229,7 @@ function GetStartedBtn() {
                         placeholder="enter your email"
                         className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
-                      
+
                       {email.length > 0 && (
                         <div className="absolute right-4 top-3">
                           {emailVerify ? (
@@ -234,7 +248,7 @@ function GetStartedBtn() {
                         placeholder="message"
                         className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       ></textarea>
-                      
+
                       {message.length > 0 && (
                         <div className="absolute right-4 top-3">
                           {messageVerify ? (

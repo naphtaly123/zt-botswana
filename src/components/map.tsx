@@ -1,4 +1,4 @@
-function MapC() {
+async function MapC() {
   return (
     <div className="w-full h-56 lg:h-[700px] rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
       {/* <iframe
