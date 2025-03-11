@@ -29,7 +29,7 @@ function Nav() {
             <Link to="/about#_" className="text-white hover:text-gray-300 text-xl">
               About
             </Link>
-            <Link to="/about#footer" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/contact" className="text-white hover:text-gray-300 text-xl">
               Contact
             </Link>
           </div>
