@@ -57,11 +57,10 @@ function ContactUs() {
             {/* Text Section */}
             <div className="lg:w-1/2 text-left space-y-6 ml-8 z-40">
               <h2 className="text-4xl font-bold leading-tight">
-                Always on the lookout for <br /> a better way
+              Let’s Build the Future Together <br /> – Your Vision, Our Expertise.
               </h2>
               <p className="text-lg text-white/90">
-                Trincidunt massa amet sagittis aliquam turpis volutpat. Vitae
-                aliquam malesuada varius felis.
+              Whether you’re scaling your business, optimizing IT, or transforming digitally, we’re here to help. Reach out today and let’s start your journey to success.
               </p>
             </div>
 
