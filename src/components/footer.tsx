@@ -84,6 +84,14 @@ function Footer() {
                   About
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/contact#_"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 

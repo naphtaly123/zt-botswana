@@ -31,63 +31,63 @@ function HomePage() {
     {
       title: "Cloud Advisory & Implementation",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We provide expert guidance and seamless execution for cloud migration, optimization, and management. Our solutions enhance scalability, security, and cost-efficiency, ensuring your business leverages the full potential of cloud technologies.",
       detailsLink: "#",
       icon: <GiCloudRing />,
     },
     {
       title: "Project Management",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "Our end-to-end project management ensures timely, budget-friendly, and goal-aligned IT projects. From planning to execution, we deliver results that drive your business forward.",
       detailsLink: "#",
       icon: <IoDocument />,
     },
     {
       title: "IT Strategy",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We create tailored IT roadmaps to align technology with your business goals. Our strategies help you innovate, optimize operations, and stay competitive in a digital-first world.",
       detailsLink: "#",
       icon: <IoSettings />,
     },
     {
       title: "Service Desk Advisory",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We optimize IT support operations with expert advice on service desk setup, processes, and tools. Our solutions enhance user satisfaction and streamline issue resolution.",
       detailsLink: "#",
       icon: <PiStrategyDuotone />,
     },
     {
       title: "Manage – IT Services",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We offer comprehensive IT service management to ensure smooth operations, proactive maintenance, and continuous improvement of your IT infrastructure.",
       detailsLink: "#",
       icon: <PiMonitorBold />,
     },
     {
       title: "SAP System Assessment",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "Our in-depth SAP system evaluations identify gaps, optimize performance, and ensure alignment with your business needs for maximum efficiency.",
       detailsLink: "#",
       icon: <IoCodeSharp />,
     },
     {
       title: "SAP Technical & End-User Training",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We deliver customized training programs for technical teams and end-users, ensuring your SAP system is used effectively and efficiently.",
       detailsLink: "#",
       icon: <MdModelTraining />,
     },
     {
       title: "Digital Transformation",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We drive innovation and growth with tailored digital transformation strategies, helping businesses adopt cutting-edge technologies to stay ahead in the digital age.",
       detailsLink: "#",
       icon: <FiBriefcase />,
     },
     {
       title: "Software Development",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        "We design and develop custom software solutions tailored to your unique business needs, delivering scalable and future-ready applications from concept to deployment.",
       detailsLink: "#",
       icon: <SiAppstore />,
     },
@@ -96,7 +96,7 @@ function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section 
+      <section
         className="min-h-full pt-24 px-16 font-sans"
         style={{ backgroundColor: "#6496B3" }}
       >
@@ -143,12 +143,12 @@ function HomePage() {
 
             {/* Get Started Button */}
             <div className="mt-6 bg-transparent">
-            <img
-              src={sapSilver}
-              alt="avatar"
-              className="rounded-lg w-36 h-auto flex max-h-lvh bg-transparent"
-              style={{ background: 'none' }}
-            />              
+              <img
+                src={sapSilver}
+                alt="avatar"
+                className="rounded-lg w-36 h-auto flex max-h-lvh bg-transparent"
+                style={{ background: "none" }}
+              />
             </div>
           </div>
 
