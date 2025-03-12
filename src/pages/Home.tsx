@@ -1,6 +1,8 @@
 import { FiArrowRightCircle, FiBriefcase } from "react-icons/fi";
 import ladyHero from "../assets/lady-hero.png";
-import sapSilver from "../assets/SAP-Silver.png";
+import sapSilver from "../assets/SAP-Silver.jpg";
+// import homeHero from "../assets/homeHero.jpg";
+
 // import GetStartedBtn from "../forms/get-started-popup";
 import OurMilestone from "../components/our-milestone";
 import LogoSlider from "../components/logo-slider";
@@ -100,7 +102,21 @@ function HomePage() {
         className="min-h-full pt-24 px-16 font-sans"
         style={{ backgroundColor: "#6496B3" }}
       >
-        <div className="mx-auto px-6 md:flex md:items-center" id="hero">
+      {/* <section
+        id="_"
+        className="relative z-0 bg-gradient-to-r from-purple-600 to-blue-600 h-fit text-white overflow-hidden"
+      >
+        <div className="absolute inset-0 z-0">
+          <img
+            src={homeHero}
+            alt="Background Image"
+            className="object-cover object-center w-full h-fit"
+          />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+        </div> */}
+
+
+        <div className="mx-auto px-6 md:flex md:items-center relative z-10" id="hero">
           {/* Hero Text */}
           <div className="md:w-1/2 text-white py-1">
             <h4>ZIMELE TECHNOLOGIES BOTSWANA</h4>
