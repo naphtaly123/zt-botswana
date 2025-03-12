@@ -10,6 +10,7 @@ import {
 // import bgContact from "../assets/bg-contact.jpg";
 // import bgContact from "../assets/bg2.png";
 import bgContact from "../assets/bg3.jpg";
+import ContactUsContact from "../forms/contact-us-contact";
 
 // import bgContact from "../assets/bgContact.jpg.jfif"
 
@@ -110,50 +111,7 @@ function ContactUs() {
 </section>
 
       {/* Contact Form */}
-      <section className="py-12 px-6 mt-8 bg-gradient-to-tr from-[#6496B3] to-[#6496B3]">
-        <div className="max-w-3xl mx-auto p-8 bg-white/80 backdrop-blur-md border border-white/30 rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-          <h3 className="text-4xl font-bold text-center text-[#333] mb-8">
-            Get in Touch
-          </h3>
-          <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <input
-              type="text"
-              placeholder="First Name"
-              className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all sm:col-span-2"
-            />
-            <textarea
-              placeholder="Your Message"
-              className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all sm:col-span-2 h-36 resize-none"
-            ></textarea>
-            <button
-              type="submit"
-              className="sm:col-span-2 bg-[#6496B3] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7f97] transition-all transform hover:scale-105"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </section>
+      <ContactUsContact/>
     </div>
   );
 }
