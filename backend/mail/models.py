@@ -4,7 +4,10 @@ from datetime import datetime
 
 # Create your models here.
 class UserMessage:
-    def __init__(self, email, subject, message):
+    def __init__(self, firstName,lastName, phone, email, subject, message):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phone = phone
         self.email = email
         self.subject = subject
         self.message = message
@@ -14,6 +17,9 @@ class UserMessage:
         try:
             # Save the message to the MongoDB collection
             db.messages.insert_one({
+                'firstName':self.firstName,
+                'lastName':self.lastName,
+                'phone':self.phone,
                 'email': self.email,
                 'subject': self.subject,
                 'message': self.message,
