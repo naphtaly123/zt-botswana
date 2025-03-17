@@ -15,19 +15,19 @@ function Nav() {
       <header className="py-5 fixed w-full top-0 z-20 px-10 shadow" style={{ backgroundColor: "#6496B3" }}>
         <nav className="container mx-10 justify-between items-center flex">
           {/* Logo */}
-          <Link to="/">
+          <Link to="/#_">
           <img src={logo} alt="Logo" className="h-12 mx-6" />
           </Link>
 
           {/* Nav Links */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/#" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/#_" className="text-white hover:text-gray-300 text-xl">
               Home
             </Link>
             <Link to="/#services" className="text-white hover:text-gray-300 text-xl">
               Services
             </Link>
-            <Link to="/about#_" className="text-white hover:text-gray-300 text-xl">
+            <Link to="/about" className="text-white hover:text-gray-300 text-xl">
               About
             </Link>
             <Link to="/contact" className="text-white hover:text-gray-300 text-xl">
@@ -55,20 +55,20 @@ function Nav() {
         {isOpen && (
           <div className="md:hidden bg-[#102E7D]">
             <nav className="flex flex-col space-y-4 text-center py-4">
-              <Link to="/" className="text-white hover:text-gray-300">
+              <Link to="/#_" className="text-white hover:text-gray-300">
                 Home
               </Link>
-              <Link to="#services" className="text-white hover:text-gray-300">
+              <Link to="/#services" className="text-white hover:text-gray-300">
                 Services
               </Link>
               <Link to="/about" className="text-white hover:text-gray-300">
                 About
               </Link>
-              <Link to="#footer" className="text-white hover:text-gray-300">
+              <Link to="/contact" className="text-white hover:text-gray-300">
                 Contact
               </Link>
               <button className="bg-sky-500 border border-white text-white px-6 py-2 rounded">
-                Get in Touch
+              <GetStartedBtn />
               </button>
             </nav>
           </div>
