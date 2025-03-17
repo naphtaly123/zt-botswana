@@ -26,7 +26,7 @@ function Footer() {
             </p>
             <p className="mt-2">
               (+267) 3980469 | 3980416<br />
-              (+27) 630593833
+              (+267) 79127013
             </p>
 
             {/* Social Icons */}
