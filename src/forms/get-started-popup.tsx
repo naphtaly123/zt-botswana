@@ -55,7 +55,7 @@ function GetStartedBtn() {
     try {
       const userData = { subject, email, message };
       const response = await axios.post(
-        "https://zt-botswana.onrender.com/mail/send-email/",
+        "https://zt-botswana.onrender.com/mail/send-email/general/",
         userData
       );
 
