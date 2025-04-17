@@ -1,5 +1,5 @@
 import Faq from "../components/faq";
-import OurTeam from "../components/our-team";
+// import OurTeam from "../components/our-team"; -Team section commented out
 import md from "../assets/md.jpg";
 import team from "../assets/team.jpg";
 import { useLocation } from "react-router-dom";
@@ -49,7 +49,7 @@ function AboutPage() {
       <section className="bg-white py-16 content-center">
         <div className="max-w-8xl mx-auto px-10 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-black text-center">
-            ABOUT ZIMELE TECHNOLOGY BOTSWANA
+            ABOUT ZIMELE TECHNOLOGIES BOTSWANA
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mx-auto">
             {/* Card 1 */}
@@ -203,7 +203,8 @@ function AboutPage() {
       </section>
 
       {/* OUR TEAM */}
-      <OurTeam />
+      {/* <OurTeam /> */}
+      {/* Team commented out*/}
 
       {/* FREQUENTLY ASKED QUESTIONS */}
       <div className="bg-[#6496B3] bg-opacity-50 backdrop-blur-md rounded-lg p-8">
