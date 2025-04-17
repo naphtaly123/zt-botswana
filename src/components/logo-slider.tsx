@@ -1,18 +1,18 @@
 import logo1 from '../assets/bpc-logo.jpg';
 import logo2 from '../assets/mva-logo.png';
-import logo3 from '../assets/pnp-logo.png';
-import logo4 from '../assets/zt-sa-logo.png';
+// import logo3 from '../assets/pnp-logo.png';
+// import logo4 from '../assets/zt-sa-logo.png';
 import logo5 from '../assets/wuc-logo.png';
 import logo6 from '../assets/botswana oil.jpeg';
 
 import logo7 from '../assets/bpc-logo.jpg';
 import logo8 from '../assets/mva-logo.png';
-import logo9 from '../assets/pnp-logo.png';
-import logo10 from '../assets/zt-sa-logo.png';
+// import logo9 from '../assets/pnp-logo.png';
+// import logo10 from '../assets/zt-sa-logo.png';
 import logo11 from '../assets/wuc-logo.png';
 import logo12 from '../assets/botswana oil.jpeg';
 
-const logos = [logo1, logo2, logo3, logo4, logo5, logo6 ,logo7,logo8, logo9, logo10, logo11, logo12]; // Add your logos here
+const logos = [logo1, logo2, logo5, logo6 ,logo7,logo8, logo11, logo12]; 
 
 const LogoSlider = () => {
     return (
