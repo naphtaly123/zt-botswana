@@ -33,6 +33,9 @@ function Nav() {
             <Link to="/contact" className="text-white hover:text-gray-300 text-xl">
               Contact
             </Link>
+            <Link to="/join-us" className="text-white hover:text-gray-300 text-xl">
+              Join Us
+            </Link>
           </div>
 
           {/* Get in Touch Button */}
