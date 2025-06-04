@@ -1,14 +1,82 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png"
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 import GetStartedBtn from "../forms/get-started-popup";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#_");
+  const location = useLocation();
+  // const scrollTimeout = useRef(null);
+  const scrollTimeout = useRef<number | null>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+  const handleScroll = () => {
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
+    }
+
+    scrollTimeout.current = window.setTimeout(() => {
+      const sections = document.querySelectorAll<HTMLElement>("section[id]");
+      let currentSection = "#_";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const scrollPosition = window.scrollY + 100;
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          currentSection = `#${section.id}`;
+        }
+      });
+
+      setActiveSection(currentSection);
+    }, 100);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Initialize on mount
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
+    }
+  };
+}, []);
+
+  // Enhanced isActive function with hash and scroll handling
+  const isActive = (path: string) => {
+   // If we're not on the home page, only check pathname matches
+  if (location.pathname !== "/") {
+    return path === location.pathname;
+  }
+
+  // Home page behavior - combine scroll position and hash
+  if (path === "/#_") {
+    // Home is active if we're at top or no hash
+    return activeSection === "#_" || !location.hash;
+  }
+  
+  if (path === "/#services") {
+    // Services is active if scrolled to services or hash matches
+    return activeSection === "#services" || location.hash === "#services";
+  }
+
+  return false;
+};
 
   return (
     <>
@@ -16,25 +84,45 @@ function Nav() {
         <nav className="container mx-10 justify-between items-center flex">
           {/* Logo */}
           <Link to="/#_">
-          <img src={logo} alt="Logo" className="h-12 mx-6" />
+            <img src={logo} alt="Logo" className="h-12 mx-6" />
           </Link>
 
           {/* Nav Links */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/#_" className="text-white hover:text-gray-300 text-xl">
+            <Link 
+              to="/#_" 
+              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/#_") ? "active-link" : ""}`}
+            >
               Home
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/#_") ? "w-full" : "w-0"}`}></span>
             </Link>
-            <Link to="/#services" className="text-white hover:text-gray-300 text-xl">
+            <Link 
+              to="/#services" 
+              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/#services") ? "active-link" : ""}`}
+            >
               Services
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/#services") ? "w-full" : "w-0"}`}></span>
             </Link>
-            <Link to="/about" className="text-white hover:text-gray-300 text-xl">
+            <Link 
+              to="/about" 
+              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/about") ? "active-link" : ""}`}
+            >
               About
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/about") ? "w-full" : "w-0"}`}></span>
             </Link>
-            <Link to="/contact" className="text-white hover:text-gray-300 text-xl">
+            <Link 
+              to="/contact" 
+              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/contact") ? "active-link" : ""}`}
+            >
               Contact
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/contact") ? "w-full" : "w-0"}`}></span>
             </Link>
-            <Link to="/join-us" className="text-white hover:text-gray-300 text-xl">
+            <Link 
+              to="/join-us" 
+              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/join-us") ? "active-link" : ""}`}
+            >
               Join Us
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/join-us") ? "w-full" : "w-0"}`}></span>
             </Link>
           </div>
 
@@ -45,7 +133,7 @@ function Nav() {
 
           {/* Hamburger Menu (Mobile) */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white text-2xl"
             onClick={toggleMenu}
             aria-expanded={isOpen}
             aria-label="Toggle Navigation"
@@ -56,23 +144,39 @@ function Nav() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-[#102E7D]">
-            <nav className="flex flex-col space-y-4 text-center py-4">
-              <Link to="/#_" className="text-white hover:text-gray-300">
+          <div className="md:hidden bg-[#102E7D] transition-all duration-300 ease-in-out">
+            <nav className="flex flex-col space-y-6 text-center py-4 px-4">
+              <Link 
+                to="/#_" 
+                className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/#_") ? "active-link" : ""}`}
+              >
                 Home
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/#_") ? "w-3/4" : "w-0"}`}></span>
               </Link>
-              <Link to="/#services" className="text-white hover:text-gray-300">
+              <Link 
+                to="/#services" 
+                className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/#services") ? "active-link" : ""}`}
+              >
                 Services
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/#services") ? "w-3/4" : "w-0"}`}></span>
               </Link>
-              <Link to="/about" className="text-white hover:text-gray-300">
+              <Link 
+                to="/about" 
+                className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/about") ? "active-link" : ""}`}
+              >
                 About
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/about") ? "w-3/4" : "w-0"}`}></span>
               </Link>
-              <Link to="/contact" className="text-white hover:text-gray-300">
+              <Link 
+                to="/contact" 
+                className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/contact") ? "active-link" : ""}`}
+              >
                 Contact
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/contact") ? "w-3/4" : "w-0"}`}></span>
               </Link>
-              <button className="bg-sky-500 border border-white text-white px-6 py-2 rounded">
-              <GetStartedBtn />
-              </button>
+              <div className="pt-2">
+                <GetStartedBtn />
+              </div>
             </nav>
           </div>
         )}
