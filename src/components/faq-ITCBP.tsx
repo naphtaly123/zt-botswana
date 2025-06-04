@@ -64,7 +64,7 @@ const faqData = [
   },
   {
     icon: "🚀",
-    question: "Whow do i apply?",
+    question: "How do i apply?",
     answer:
       "Follow our social media pages to stay updated on our annual IT Capacity Building Program."
   }

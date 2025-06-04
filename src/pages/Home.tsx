@@ -1,6 +1,6 @@
 import { FiBriefcase } from "react-icons/fi"; //FiArrowRightCircle
 import ladyHero from "../assets/lady-hero.png";
-// import sapSilver from "../assets/SAP-Silver.jpg";
+import sapSilver from "../assets/SAP-Silver2.jpg";
 
 // import GetStartedBtn from "../forms/get-started-popup";
 import OurMilestone from "../components/our-milestone";
@@ -159,17 +159,23 @@ function HomePage() {
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Unleashing the Power of IT for a Smarter, Faster, and More
-              Efficient Enterprise. We are Your Trusted Partner in IT & SAP
+              Efficient Enterprise. We are Your Trusted Silver Partner in IT & SAP
               Excellence – Stay Ahead, Stay Secure.
             </p>
           </div>
 
           {/* Hero Image */}
-          <div className="md:w-1/2 mt-0 h-full flex justify-center">
+          <div className="md:w-1/2 mt-16 h-full flex justify-center">
             <img
               src={ladyHero}
               alt="avatar"
               className="rounded-lg w-[115%] h-auto flex max-h-lvh"
+            />
+            <img
+              src={sapSilver}
+              alt="avatar"
+              className="rounded-lg w-[20%] h-[20%] mt-72 flex max-h-lvh"
+              style={{ mixBlendMode: 'color-burn' }} 
             />
           </div>
         </div>
