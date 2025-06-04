@@ -244,7 +244,7 @@ function JoinUs() {
                     </li>
                 </ul>
                 <p
-  className="inline-flex items-center font-semibold transition-colors duration-200 text-[#6496B3] bg-[#6496B3] h-[2px] w-[100px]"
+  className="inline-flex items-center font-semibold transition-colors duration-200 text-[#6496B3] bg-[#6496B3] h-[3px] w-[100px]"
 ></p>
             </div>
         </div>
