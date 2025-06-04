@@ -61,6 +61,12 @@ const faqData = [
     question: "Are scholaships available?",
     answer:
       "Currently there are no scholarships available for this program."
+  },
+  {
+    icon: "🚀",
+    question: "Whow do i apply?",
+    answer:
+      "Follow our social media pages to stay updated on our annual IT Capacity Building Program."
   }
 ];
 
