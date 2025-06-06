@@ -20,7 +20,7 @@ function JoinUs() {
   return (
     <>
     {/* <!-- Hero Section --> */}
-    <section id="home" className="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden bg-[#6496B3]">
+    <section id="_" className="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden bg-[#6496B3]">
         <div className="absolute inset-0">
             <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
             <div className="absolute top-3/4 right-1/4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }}></div>
@@ -96,7 +96,7 @@ function JoinUs() {
 </section>
 
     {/* <!-- About Section --> */}
-    <section id="about" className="pt-14 pb-4 bg-white">
+    <section id="it-capacity-building" className="pt-14 pb-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">IT Capacity Building Programme</h2>
@@ -244,7 +244,7 @@ function JoinUs() {
                     </li>
                 </ul>
                 <p
-  className="inline-flex items-center font-semibold transition-colors duration-200 text-[#6496B3] bg-[#6496B3] h-[3px] w-[100px]"
+  className="inline-flex items-center font-semibold transition-colors duration-200 text-[#6496B3] bg-[#6496B3] h-[2px] w-[100px]"
 ></p>
             </div>
         </div>
