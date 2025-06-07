@@ -96,11 +96,6 @@ function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      {/* <section
-        className="min-h-full pt-24 px-16 font-sans"
-        style={{ backgroundColor: "#6496B3" }}
-      > */}
       <section
         id="_"
         className="relative z-0 bg-gray-900 h-fit text-white px-10 overflow-hidden"
@@ -159,8 +154,8 @@ function HomePage() {
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Unleashing the Power of IT for a Smarter, Faster, and More
-              Efficient Enterprise. We are Your Trusted Silver Partner in IT & SAP
-              Excellence – Stay Ahead, Stay Secure.
+              Efficient Enterprise. We are Your Trusted Silver Partner in IT &
+              SAP Excellence – Stay Ahead, Stay Secure.
             </p>
           </div>
 
@@ -175,7 +170,7 @@ function HomePage() {
               src={sapSilver}
               alt="avatar"
               className="rounded-lg w-[20%] h-[20%] mt-72 flex max-h-lvh"
-              style={{ mixBlendMode: 'color-burn' }} 
+              style={{ mixBlendMode: "color-burn" }}
             />
           </div>
         </div>
