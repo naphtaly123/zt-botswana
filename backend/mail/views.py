@@ -58,6 +58,7 @@ class GeneralMailView(View):
         email_from = settings.EMAIL_HOST_USER
         recipient_email = data.get("email")
         message = data.get("message", '')
+        phone = data.get("phone", '')
 
         if not recipient_email:
             return JsonResponse({"error": "Email is required"}, status=status.HTTP_400_BAD_REQUEST)
@@ -75,7 +76,7 @@ class GeneralMailView(View):
                 print(settings.EMAIL_HOST, settings.EMAIL_HOST_PASSWORD)
                 email_message = EmailMessage(subject, message_body, email_from, [recipient_email], connection=connection)
                 email_message.send()
-                sendToUs(subject=user_subject,message=message,user_email=recipient_email, phone="not supplied")
+                sendToUs(subject=user_subject,message=message,user_email=recipient_email, phone=phone)
                 logger.info("Email sent to user: %s", recipient_email)
                 saveUserEmail(firstName="General",lastName="General", phone="2677111111",email=recipient_email, subject=user_subject, message=message)
                 return JsonResponse({"message": "Email sent successfully"}, status=status.HTTP_200_OK)
@@ -83,7 +84,7 @@ class GeneralMailView(View):
             logger.error("Error sending email: %s", e, exc_info=True)
             return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-#DetailedMail       
+#DetailedMail
 @method_decorator(csrf_exempt, name='dispatch')
 class DetailedMailView(View):
     def post(self, request):
