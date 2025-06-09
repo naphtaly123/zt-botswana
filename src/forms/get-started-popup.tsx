@@ -5,6 +5,9 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdErrorOutline } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+import toast from "react-hot-toast";
+
 function GetStartedBtn() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,8 +47,13 @@ function GetStartedBtn() {
   };
 
   const handleSubmit = async () => {
-    if (!emailVerify || !subjectVerify || !messageVerify) {
-      alert("Please fill out all fields correctly.");
+    if (!emailVerify) {
+      toast.error("email format is not allowed");
+      return;
+    }
+    
+    if (!subjectVerify || !messageVerify) {
+      toast.error("Subject or message body is too short.");
       return;
     }
 
@@ -56,11 +64,13 @@ function GetStartedBtn() {
       const userData = { subject, email, message };
       const response = await axios.post(
         "https://zt-botswana.onrender.com/mail/send-email/general/",
+        // "http://127.0.0.1:8000/mail/send-email/general/",
         userData
       );
 
       console.log("Response:", response.data);
-      alert("Message sent successfully!");
+      // alert("Email sent successfully!");
+      toast.success("Email sent successfully!")
 
       // Reset form
       setSubject("");
@@ -72,7 +82,7 @@ function GetStartedBtn() {
       closeModal(); // Close modal after successful submission
     } catch (error) {
       console.error("Error:", error);
-      setApiError("An error occurred while sending the message.");
+      setApiError("An error occurred while sending the email.");
     } finally {
       setIsLoading(false);
     }
@@ -260,7 +270,7 @@ function GetStartedBtn() {
                       )}
                     </div>
                     {apiError && (
-                      <p className="text-red-500 text-center">{apiError}</p>
+                      <p className="text-white text-center">{apiError}</p>
                     )}
                     <button
                       type="button"
