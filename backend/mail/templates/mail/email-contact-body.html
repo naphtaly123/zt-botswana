@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Contacting Us</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans justify-center items-center">
+  <table class="w-[80%] h-full my-5" cellspacing="0" cellpadding="0" style="margin: 0; padding: 0; width: 100%; height: 100%;">
+    <tr>
+      <td align="center" class="bg-gray-900">
+        <table class="max-w-2xl w-full bg-gray-800 shadow-lg rounded-lg overflow-hidden" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="bg-blue-500 text-center py-4">
+              <h1 class="text-2xl font-bold text-white">Thank You for Contacting Us!</h1>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-6">
+              <p class="text-lg font-medium mb-4">Hello {{ first_name }},</p>
+              <p class="text-gray-300 mb-6">
+                Thank you for contacting <strong>Zimele Technologies Botswana!</strong>  We've received your message regarding:
+                <strong>{{ subject }}</strong>
+              </p>
+              <p class="text-gray-300 mb-6">
+                Our team is currently reviewing your message and we'll get back to you as soon as possible.
+              </p>
+              
+              <!-- <div class="bg-gray-700 p-4 rounded-lg mb-6">
+                <p><strong>Your Message:</strong></p>
+                <p class="text-gray-300">{{ message }}</p>
+              </div> -->
+              
+              <p class="text-gray-300 mb-4">
+                <strong>Reference:</strong> This message was meant for: {{ email }}. If you do not recognise this action please ignore. Somebody else might have typed your email address by mistake.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td class="bg-gray-700 p-6 text-gray-400 text-center text-sm">
+              If you have any urgent questions, feel free to contact us at 
+              <a href="mailto:support@zimele.co.bw" class="text-blue-400 underline">support@zimele.co.bw</a>.
+            </td>
+          </tr>
+          <tr>
+            <td class="bg-gray-800 text-center py-4">
+              <p class="text-gray-500 text-xs">© {% now "Y" %} <a class="hover:underline" href="https://www.zimele.co.bw" title="Zimele Technologies" itemprop="url">Zimele Technologies Botswana</a>. All rights reserved.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
