@@ -10,7 +10,9 @@ function FaqITCBP() {
           >
             <details className="group">
               <summary className="flex items-center justify-between cursor-pointer text-base font-semibold text-blue-800 hover:text-blue-600 transition-colors">
-                <span>{faq.icon} {faq.question}</span>
+                <span>
+                  {faq.icon} {faq.question}
+                </span>
                 <span className="transition-transform duration-300 group-open:rotate-180">
                   <svg
                     fill="none"
@@ -35,7 +37,10 @@ function FaqITCBP() {
       {/* CTA */}
       <div className="text-center mt-10">
         <p className="text-sm text-gray-600">Still have questions?</p>
-        <a href="#contact" className="text-blue-600 font-semibold hover:underline">
+        <a
+          href="#contact"
+          className="text-blue-600 font-semibold hover:underline"
+        >
           Contact our support team →
         </a>
       </div>
@@ -47,27 +52,25 @@ const faqData = [
   {
     icon: "🎓",
     question: "Is prior experience required?",
-    answer:
-      "There is no prior experience needed."
+    answer: "There is no prior experience needed.",
   },
   {
     icon: "💻",
     question: "What equipment is needed?",
     answer:
-      "You can bring your smart phone or PC if you have one. But there are not mandatory, as we will provide the necessary equipment."
+      "You can bring your smart phone or PC if you have one. But there are not mandatory, as we will provide the necessary equipment.",
   },
   {
     icon: "💰",
     question: "Are scholaships available?",
-    answer:
-      "Currently there are no scholarships available for this program."
+    answer: "Currently there are no scholarships available for this program.",
   },
   {
     icon: "🚀",
     question: "How do i apply?",
     answer:
-      "Follow our social media pages to stay updated on our annual IT Capacity Building Program."
-  }
+      "Follow our social media pages to stay updated on our annual IT Capacity Building Program.",
+  },
 ];
 
 export default FaqITCBP;

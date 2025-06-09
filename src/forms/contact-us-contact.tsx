@@ -8,6 +8,8 @@ import {
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdErrorOutline } from "react-icons/md";
 
+import toast from "react-hot-toast";
+
 function ContactUsContact() {
   const [firstName, setFirstName] = useState("");
   const [firstNameVerify, setFirstNameVerify] = useState(false);
@@ -64,19 +66,31 @@ function ContactUsContact() {
 
   const handleSubmit = async () => {
     try {
-      if (!email) {
-        alert("Please enter your email");
+      if (!firstName || !lastName || !phone || !subject || !email || !message) {
+        toast.error("Please fill in all required fields");
+        return;
+      }
+      if (!firstNameVerify || !lastNameVerify) {
+        toast.error("Last name or first name is too short");
+        return;
+      }
+      if (!subjectVerify || !messageVerify) {
+        toast.error("Subject or message is too short");
+        return;
+      }
+      if (!emailVerify || !phoneVerify) {
+        toast.error("Email or phone format is not allowed");
         return;
       }
 
       const userData = { firstName, lastName, phone, subject, email, message };
       const response = await axios.post(
         "https://zt-botswana.onrender.com/mail/send-email/detailed/",
-        //http://127.0.0.1:8000
+        // "http://127.0.0.1:8000/mail/send-email/detailed/",
         userData
       );
       console.log("Response:", response.data);
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!")
 
       // Reset form
       setFirstName("");
@@ -98,146 +112,310 @@ function ContactUsContact() {
       setMessageVerify(false);
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while sending the message.");
+      toast.error("An error occurred while sending the message.");
     }
   };
 
   return (
-    <section className="py-12 px-6 mt-8 bg-gradient-to-tr from-[#6496B3] to-[#6496B3]">
-      <div className="max-w-3xl mx-auto p-8 bg-white/80 backdrop-blur-md border border-white/30 rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-        <h3 className="text-4xl font-bold text-center text-[#333] mb-8">
-          Get in Touch
-        </h3>
-        <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            onChange={handleFirstName}
-            className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-          />
-
-          <span className="absolute top-2 right-3 text-lg">
-            {firstName.length > 0 &&
-              (firstNameVerify ? (
-                <IoMdCheckmarkCircleOutline className="text-green-500" />
-              ) : (
+<section className="py-12 px-6 mt-8 bg-gradient-to-tr from-[#6496B3] to-[#6496B3]">
+  <div className="max-w-3xl mx-auto p-8 bg-white/80 backdrop-blur-md border border-white/30 rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+    <h3 className="text-4xl font-bold text-center text-[#333] mb-8">
+      Get in Touch
+    </h3>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {/* First Name */}
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={handleFirstName}
+          className="form-input w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all pr-10"
+        />
+        {firstName.length > 0 && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {firstNameVerify ? (
+              <IoMdCheckmarkCircleOutline className="text-green-500" />
+            ) : (
+              <div className="relative group">
                 <MdErrorOutline className="text-red-500" />
-              ))}
-          </span>
-          {firstName.length > 0 && !firstNameVerify && (
-            <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
-          )}
-
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={handleLastName}
-            className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-          />
-
-          <span className="absolute top-2 right-3 text-lg">
-            {lastName.length > 0 &&
-              (lastNameVerify ? (
-                <IoMdCheckmarkCircleOutline className="text-green-500" />
-              ) : (
-                <MdErrorOutline className="text-red-500" />
-              ))}
-          </span>
-          {lastName.length > 0 && !lastNameVerify && (
-            <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
-          )}
-
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={handlePhone}
-            className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-          />
-
-          <span className="absolute top-2 right-3 text-lg">
-            {phone.length > 0 &&
-              (phoneVerify ? (
-                <IoMdCheckmarkCircleOutline className="text-green-500" />
-              ) : (
-                <MdErrorOutline className="text-red-500" />
-              ))}
-          </span>
-          {phone.length > 0 && !phoneVerify && (
-            <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
-          )}
-
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={handleEmail}
-            className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
-          />
-          <span className="absolute top-2 right-3 text-lg">
-            {email.length > 0 &&
-              (emailVerify ? (
-                <IoMdCheckmarkCircleOutline className="text-green-500" />
-              ) : (
-                <MdErrorOutline className="text-red-500" />
-              ))}
-          </span>
-          {email.length > 0 && !emailVerify && (
-            <p className="text-xs text-red-500 ml-2 mt-1">
-              Invalid email address.
-            </p>
-          )}
-
-          <input
-            type="text"
-            placeholder="Subject"
-            value={subject}
-            onChange={handleSubject}
-            className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all sm:col-span-2"
-          />
-          <span className="absolute top-2 right-3 text-lg">
-            {subject.length > 0 &&
-              (subjectVerify ? (
-                <IoMdCheckmarkCircleOutline className="text-green-500" />
-              ) : (
-                <MdErrorOutline className="text-red-500" />
-              ))}
-          </span>
-          {subject.length > 0 && !subjectVerify && (
-            <p className="text-xs text-red-500 ml-2 mt-1">Subject too short.</p>
-          )}
-
-          <textarea
-            placeholder="Your Message"
-            value={message}
-            onChange={handleMessage}
-            className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all sm:col-span-2 h-36 resize-none"
-          ></textarea>
-
-          <span className="absolute top-2 right-3 text-lg">
-            {message.length > 0 &&
-              (messageVerify ? (
-                <IoMdCheckmarkCircleOutline className="text-green-500" />
-              ) : (
-                <MdErrorOutline className="text-red-500" />
-              ))}
-          </span>
-          {message.length > 0 && !messageVerify && (
-            <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
-          )}
-
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="sm:col-span-2 bg-[#6496B3] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7f97] transition-all transform hover:scale-105"
-          >
-            Send Message
-          </button>
-        </form>
+                <div className="absolute hidden group-hover:block z-10 bg-red-500 text-white text-xs rounded py-1 px-2 -bottom-8 -left-1/2 transform -translate-x-1/4 whitespace-nowrap">
+                  First name is too short.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
-    </section>
+
+      {/* Last Name */}
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={handleLastName}
+          className="form-input w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all pr-10"
+        />
+        {lastName.length > 0 && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {lastNameVerify ? (
+              <IoMdCheckmarkCircleOutline className="text-green-500" />
+            ) : (
+              <div className="relative group">
+                <MdErrorOutline className="text-red-500" />
+                <div className="absolute hidden group-hover:block z-10 bg-red-500 text-white text-xs rounded py-1 px-2 -bottom-8 -left-1/2 transform -translate-x-1/4 whitespace-nowrap">
+                  Last name is too short.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Phone Number */}
+      <div className="relative">
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          value={phone}
+          onChange={handlePhone}
+          className="form-input w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all pr-10"
+        />
+        {phone.length > 0 && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {phoneVerify ? (
+              <IoMdCheckmarkCircleOutline className="text-green-500" />
+            ) : (
+              <div className="relative group">
+                <MdErrorOutline className="text-red-500" />
+                <div className="absolute hidden group-hover:block z-10 bg-red-500 text-white text-xs rounded py-1 px-2 -bottom-8 -left-1/2 transform -translate-x-1/4 whitespace-nowrap">
+                  Wrong phone number format.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Email Address */}
+      <div className="relative">
+        <input
+          type="email"
+          placeholder="Email Address"
+          value={email}
+          onChange={handleEmail}
+          className="form-input w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all pr-10"
+        />
+        {email.length > 0 && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {emailVerify ? (
+              <IoMdCheckmarkCircleOutline className="text-green-500" />
+            ) : (
+              <div className="relative group">
+                <MdErrorOutline className="text-red-500" />
+                <div className="absolute hidden group-hover:block z-10 bg-red-500 text-white text-xs rounded py-1 px-2 -bottom-8 -left-1/2 transform -translate-x-1/4 whitespace-nowrap">
+                  Invalid email address.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Subject */}
+      <div className="relative sm:col-span-2">
+        <input
+          type="text"
+          placeholder="Subject"
+          value={subject}
+          onChange={handleSubject}
+          className="form-input w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all pr-10"
+        />
+        {subject.length > 0 && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {subjectVerify ? (
+              <IoMdCheckmarkCircleOutline className="text-green-500" />
+            ) : (
+              <div className="relative group">
+                <MdErrorOutline className="text-red-500" />
+                <div className="absolute hidden group-hover:block z-10 bg-red-500 text-white text-xs rounded py-1 px-2 -bottom-8 -left-1/2 transform -translate-x-1/4 whitespace-nowrap">
+                  Subject too short.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Message */}
+      <div className="relative sm:col-span-2">
+        <textarea
+          placeholder="Your Message"
+          value={message}
+          onChange={handleMessage}
+          className="form-input w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all pr-10 h-36 resize-none"
+        ></textarea>
+        {message.length > 0 && (
+          <div className="absolute top-3 right-3 flex items-center">
+            {messageVerify ? (
+              <IoMdCheckmarkCircleOutline className="text-green-500" />
+            ) : (
+              <div className="relative group">
+                <MdErrorOutline className="text-red-500" />
+                <div className="absolute hidden group-hover:block z-10 bg-red-500 text-white text-xs rounded py-1 px-2 -bottom-8 -left-1/2 transform -translate-x-1/4 whitespace-nowrap">
+                  Message too short.
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      <button
+        onClick={handleSubmit}
+        className="sm:col-span-2 bg-[#6496B3] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7f97] transition-all transform hover:scale-105"
+      >
+        Send Message
+      </button>
+    </div>
+  </div>
+</section>
+    // <section className="py-12 px-6 mt-8 bg-gradient-to-tr from-[#6496B3] to-[#6496B3]">
+    //   <div className="max-w-3xl mx-auto p-8 bg-white/80 backdrop-blur-md border border-white/30 rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+    //     <h3 className="text-4xl font-bold text-center text-[#333] mb-8">
+    //       Get in Touch
+    //     </h3>
+    //     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    //       <input
+    //         type="text"
+    //         placeholder="First Name"
+    //         value={firstName}
+    //         onChange={handleFirstName}
+    //         className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
+    //       />
+
+    //       <span className="absolute top-2 right-3 text-lg">
+    //         {firstName.length > 0 &&
+    //           (firstNameVerify ? (
+    //             <IoMdCheckmarkCircleOutline className="text-green-500" />
+    //           ) : (
+    //             <MdErrorOutline className="text-red-500" />
+    //           ))}
+    //       </span>
+    //       {firstName.length > 0 && !firstNameVerify && (
+    //         <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
+    //       )}
+
+    //       <input
+    //         type="text"
+    //         placeholder="Last Name"
+    //         value={lastName}
+    //         onChange={handleLastName}
+    //         className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
+    //       />
+
+    //       <span className="absolute top-2 right-3 text-lg">
+    //         {lastName.length > 0 &&
+    //           (lastNameVerify ? (
+    //             <IoMdCheckmarkCircleOutline className="text-green-500" />
+    //           ) : (
+    //             <MdErrorOutline className="text-red-500" />
+    //           ))}
+    //       </span>
+    //       {lastName.length > 0 && !lastNameVerify && (
+    //         <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
+    //       )}
+
+    //       <input
+    //         type="tel"
+    //         placeholder="Phone Number"
+    //         value={phone}
+    //         onChange={handlePhone}
+    //         className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
+    //       />
+
+    //       <span className="absolute top-2 right-3 text-lg">
+    //         {phone.length > 0 &&
+    //           (phoneVerify ? (
+    //             <IoMdCheckmarkCircleOutline className="text-green-500" />
+    //           ) : (
+    //             <MdErrorOutline className="text-red-500" />
+    //           ))}
+    //       </span>
+    //       {phone.length > 0 && !phoneVerify && (
+    //         <p className="text-xs text-red-500 ml-2 mt-1">Wrong phone number format.</p>
+    //       )}
+
+    //       <input
+    //         type="email"
+    //         placeholder="Email Address"
+    //         value={email}
+    //         onChange={handleEmail}
+    //         className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all"
+    //       />
+    //       <span className="absolute top-2 right-3 text-lg">
+    //         {email.length > 0 &&
+    //           (emailVerify ? (
+    //             <IoMdCheckmarkCircleOutline className="text-green-500" />
+    //           ) : (
+    //             <MdErrorOutline className="text-red-500" />
+    //           ))}
+    //       </span>
+    //       {email.length > 0 && !emailVerify && (
+    //         <p className="text-xs text-red-500 ml-2 mt-1">
+    //           Invalid email address.
+    //         </p>
+    //       )}
+
+    //       <input
+    //         type="text"
+    //         placeholder="Subject"
+    //         value={subject}
+    //         onChange={handleSubject}
+    //         className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all sm:col-span-2"
+    //       />
+    //       <span className="absolute top-2 right-3 text-lg">
+    //         {subject.length > 0 &&
+    //           (subjectVerify ? (
+    //             <IoMdCheckmarkCircleOutline className="text-green-500" />
+    //           ) : (
+    //             <MdErrorOutline className="text-red-500" />
+    //           ))}
+    //       </span>
+    //       {subject.length > 0 && !subjectVerify && (
+    //         <p className="text-xs text-red-500 ml-2 mt-1">Subject too short.</p>
+    //       )}
+
+    //       <textarea
+    //         placeholder="Your Message"
+    //         value={message}
+    //         onChange={handleMessage}
+    //         className="form-input p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6496B3] transition-all sm:col-span-2 h-36 resize-none"
+    //       ></textarea>
+
+    //       <span className="absolute top-2 right-3 text-lg">
+    //         {message.length > 0 &&
+    //           (messageVerify ? (
+    //             <IoMdCheckmarkCircleOutline className="text-green-500" />
+    //           ) : (
+    //             <MdErrorOutline className="text-red-500" />
+    //           ))}
+    //       </span>
+    //       {message.length > 0 && !messageVerify && (
+    //         <p className="text-xs text-red-500 ml-2 mt-1">Message too short.</p>
+    //       )}
+
+    //       <button
+
+    //         onClick={handleSubmit}
+    //         className="sm:col-span-2 bg-[#6496B3] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7f97] transition-all transform hover:scale-105"
+    //       >
+    //         Send Message
+    //       </button>
+    //     </div>
+    //   </div>
+    // </section>
   );
 }
 

@@ -8,11 +8,13 @@ import ScrollToTop from "./components/scroll-to-top";
 import JoinUs from "./pages/JoinUs";
 
 import ReactLenis from "lenis/react";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <ReactLenis root>
       <Router>
+        <Toaster position="top-center" toastOptions={{duration: 3000}}/>
         <Nav />
         <ScrollToTop />
         <Routes>

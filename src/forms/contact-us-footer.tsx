@@ -4,6 +4,8 @@ import { validateInput, validateEmail } from "./form-validations";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdErrorOutline } from "react-icons/md";
 
+import toast from "react-hot-toast";
+
 function ContactUsFooter() {
   const [subject, setSubject] = useState("");
   const [subjectVerify, setSubjectVerify] = useState(false);
@@ -35,7 +37,7 @@ function ContactUsFooter() {
   const handleSubmit = async () => {
     try {
       if (!email) {
-        alert("Please enter your email");
+        toast.error("Please enter your email");
         return;
       }
 
@@ -45,7 +47,7 @@ function ContactUsFooter() {
         userData
       );
       console.log("Response:", response.data);
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
 
       // Reset form
       setSubject(""); setSubjectVerify(false);
@@ -53,15 +55,13 @@ function ContactUsFooter() {
       setMessage(""); setMessageVerify(false);
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while sending the message.");
+      toast.error("An error occurred while sending the message.");
     }
   };
 
   return (
     <div className="section font-sans">
-      <div>
-  
-      </div>
+ 
 
       {/* Subject */}
       <div className="w-full pb-3 relative">
