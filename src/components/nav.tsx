@@ -337,7 +337,7 @@ function Nav() {
                       to="/join-us#_" 
                       className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
                     >
-                      Carriers
+                      Careers
                     </Link>
                     <Link 
                       to="/join-us#it-capacity-building" 
