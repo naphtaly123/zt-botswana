@@ -9,6 +9,7 @@ import JoinUs from "./pages/JoinUs";
 
 import ReactLenis from "lenis/react";
 import { Toaster } from 'react-hot-toast';
+import Services from "./pages/Services";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/join-us" element={<JoinUs />} />
