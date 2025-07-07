@@ -1,9 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ContactUsFooter from "../forms/contact-us-footer.tsx";
 import logo from "../assets/logo.png";
+import SocialLinks from "./social-links.tsx";
 
 function Footer() {
   const { id } = useParams();
+  const location = useLocation();
 
   return (
     <footer id="footer" className="font-sans">
@@ -107,7 +109,7 @@ function Footer() {
               <li>EA Review & Implementation</li>
               <li>
                 <Link
-                  to="/#services"
+                  to="/services"
                   className="text-blue-600 hover:underline"
                 >
                   See More
@@ -118,11 +120,12 @@ function Footer() {
 
           {/* Contact Form */}
           <div>
-            <h2 className="text-lg font-semibold text-blue-700 mb-4">
-              Contact Us
-            </h2>
-            <ContactUsFooter />
+            
+            {location.pathname !== '/contact' ? <ContactUsFooter /> : <SocialLinks />}
+            {/* <ContactUsFooter /> */}
           </div>
+   
+
         </div>
       </section>
 

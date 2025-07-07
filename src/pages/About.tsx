@@ -75,7 +75,7 @@ function AboutPage() {
                   What we do
                 </h3>
                 <p className="mt-2 text-base text-gray-500">
-                  We offer IT and SAP based solutions that help organization’s
+                  We offer SAP and IT based solutions that help organization’s
                   maximize revenue collection, profitability, and ERP software
                   to run organizations.
                 </p>
@@ -105,8 +105,7 @@ function AboutPage() {
                   How we work
                 </h3>
                 <p className="mt-2 text-base text-gray-500">
-                  We take a collaborative and tailored approach to deliver IT
-                  and SAP-based solutions that drive results, ensuring seamless
+                  We take a collaborative and tailored approach to deliver SAP-based and IT solutions that drive results, ensuring seamless
                   integration, enhanced efficiency, and measurable growth.
                 </p>
               </div>

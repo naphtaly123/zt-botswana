@@ -11,6 +11,8 @@ import { MdErrorOutline } from "react-icons/md";
 import toast from "react-hot-toast";
 
 function ContactUsContact() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [firstName, setFirstName] = useState("");
   const [firstNameVerify, setFirstNameVerify] = useState(false);
 
@@ -65,6 +67,8 @@ function ContactUsContact() {
   };
 
   const handleSubmit = async () => {
+
+    setIsLoading(true);
     try {
       if (!firstName || !lastName || !phone || !subject || !email || !message) {
         toast.error("Please fill in all required fields");
@@ -113,6 +117,8 @@ function ContactUsContact() {
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred while sending the message.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -274,9 +280,10 @@ function ContactUsContact() {
 
       <button
         onClick={handleSubmit}
+        disabled={isLoading}
         className="sm:col-span-2 bg-[#6496B3] text-white py-3 rounded-lg font-semibold hover:bg-[#4a7f97] transition-all transform hover:scale-105"
       >
-        Send Message
+        {isLoading ? "Sending..." : "Submit"}
       </button>
     </div>
   </div>

@@ -1,16 +1,9 @@
-import { FiBriefcase } from "react-icons/fi"; //FiArrowRightCircle
 import ladyHero from "../assets/lady-hero.png";
 import sapSilver from "../assets/SAP-Silver2.jpg";
 
 // import GetStartedBtn from "../forms/get-started-popup";
 import OurMilestone from "../components/our-milestone";
 import LogoSlider from "../components/logo-slider";
-import Card from "../components/Card";
-import { MdModelTraining } from "react-icons/md";
-import { PiMonitorBold, PiStrategyDuotone } from "react-icons/pi";
-import { GiCloudRing } from "react-icons/gi";
-import { IoCodeSharp, IoDocument, IoSettings } from "react-icons/io5";
-import { SiAppstore } from "react-icons/si";
 import OurSectors from "../components/our-sectors";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
@@ -28,71 +21,6 @@ function HomePage() {
     }
   }, [location]);
 
-  const services = [
-    {
-      title: "Cloud Advisory & Implementation",
-      description:
-        "We provide expert guidance and seamless execution for cloud migration, optimization, and management. Our solutions enhance scalability, security, and cost-efficiency, ensuring your business leverages the full potential of cloud technologies.",
-      detailsLink: "#",
-      icon: <GiCloudRing />,
-    },
-    {
-      title: "Project Management",
-      description:
-        "Our end-to-end project management ensures timely, budget-friendly, and goal-aligned IT projects. From planning to execution, we deliver results that drive your business forward.",
-      detailsLink: "#",
-      icon: <IoDocument />,
-    },
-    {
-      title: "IT Strategy",
-      description:
-        "We create tailored IT roadmaps to align technology with your business goals. Our strategies help you innovate, optimize operations, and stay competitive in a digital-first world.",
-      detailsLink: "#",
-      icon: <IoSettings />,
-    },
-    {
-      title: "Service Desk Advisory",
-      description:
-        "We optimize IT support operations with expert advice on service desk setup, processes, and tools. Our solutions enhance user satisfaction and streamline issue resolution.",
-      detailsLink: "#",
-      icon: <PiStrategyDuotone />,
-    },
-    {
-      title: "Manage – IT Services",
-      description:
-        "We offer comprehensive IT service management to ensure smooth operations, proactive maintenance, and continuous improvement of your IT infrastructure.",
-      detailsLink: "#",
-      icon: <PiMonitorBold />,
-    },
-    {
-      title: "SAP System Assessment",
-      description:
-        "Our in-depth SAP system evaluations identify gaps, optimize performance, and ensure alignment with your business needs for maximum efficiency.",
-      detailsLink: "#",
-      icon: <IoCodeSharp />,
-    },
-    {
-      title: "SAP Technical & End-User Training",
-      description:
-        "We deliver customized training programs for technical teams and end-users, ensuring your SAP system is used effectively and efficiently.",
-      detailsLink: "#",
-      icon: <MdModelTraining />,
-    },
-    {
-      title: "Digital Transformation",
-      description:
-        "We drive innovation and growth with tailored digital transformation strategies, helping businesses adopt cutting-edge technologies to stay ahead in the digital age.",
-      detailsLink: "#",
-      icon: <FiBriefcase />,
-    },
-    {
-      title: "Software Development",
-      description:
-        "We design and develop custom software solutions tailored to your unique business needs, delivering scalable and future-ready applications from concept to deployment.",
-      detailsLink: "#",
-      icon: <SiAppstore />,
-    },
-  ];
 
   return (
     <>
@@ -181,35 +109,7 @@ function HomePage() {
         <OurMilestone />
       </div>
 
-      {/* Services Section */}
-      <section id="services" className="h-auto bg-[#F3F3F3] py-12 px-10">
-        <div className="container mx-auto px-6">
-          {/* Section Title */}
-          <div className="mb-8">
-            <h2 className="text-3xl font-semibold text-[#000D51] px-3">
-              What services do we offer <br /> for your business
-            </h2>
-            <p className="text-gray-600 max-w-lg mt-2 px-3">
-              Unlock the full potential of your business with our expert IT
-              solutions.
-            </p>
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-3 align-items-start">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                title={service.title}
-                description={service.description}
-                // detailsLink={service.detailsLink}
-                icon={service.icon}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      <OurSectors />
+      
 
       {/* Video Section */}
       <section className="bg-[#6496B3] font-sans">
@@ -220,7 +120,7 @@ function HomePage() {
             UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-<br></br>
             POWERED BUSINESS SOLUTIONS
           </h1>
-          <video width="60%" height="500" controls muted>
+          <video width="60%" height="500" controls>
             <source
               src="https://res.cloudinary.com/dh3ktp1w6/video/upload/v1744880806/Zimele_Tech_Botswana_ghi0qp.mp4"
               type="video/mp4"
@@ -229,6 +129,8 @@ function HomePage() {
           </video>
         </div>
       </section>
+      {/* Services Section */}
+      <OurSectors />
 
       {/* Logo Slider Section */}
       <LogoSlider />

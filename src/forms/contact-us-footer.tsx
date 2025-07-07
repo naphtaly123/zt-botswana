@@ -7,6 +7,7 @@ import { MdErrorOutline } from "react-icons/md";
 import toast from "react-hot-toast";
 
 function ContactUsFooter() {
+  const [isLoading, setIsLoading] = useState(false);
   const [subject, setSubject] = useState("");
   const [subjectVerify, setSubjectVerify] = useState(false);
 
@@ -35,11 +36,12 @@ function ContactUsFooter() {
   };
 
   const handleSubmit = async () => {
-    try {
-      if (!email) {
+    if (!email) {
         toast.error("Please enter your email");
         return;
       }
+    setIsLoading(true);
+    try {
 
       const userData = { subject, email, message };
       const response = await axios.post(
@@ -56,11 +58,16 @@ function ContactUsFooter() {
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred while sending the message.");
+    }finally{
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="section font-sans">
+      <h2 className="text-lg font-semibold text-blue-700 mb-4">
+              Contact Us
+            </h2>
  
 
       {/* Subject */}
@@ -133,9 +140,10 @@ function ContactUsFooter() {
       <div className="text-right">
         <button
           onClick={handleSubmit}
+          disabled={isLoading}
           className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-sm px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
         >
-          Submit
+          {isLoading ? "Sending..." : "Submit"}
         </button>
       </div>
     </div>
