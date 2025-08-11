@@ -38,7 +38,7 @@ function FaqITCBP() {
       <div className="text-center mt-10">
         <p className="text-sm text-gray-600">Still have questions?</p>
         <a
-          href="#contact"
+          href="mailto:support1@zimele.co.bw"
           className="text-blue-600 font-semibold hover:underline"
         >
           Contact our support team →

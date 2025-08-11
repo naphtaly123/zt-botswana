@@ -15,7 +15,7 @@ function OurMilestone() {
         <div className="w-full md:w-1/2 lg:w-1/3 py-8">
           <div className="lg:border-r border-gray-200 px-12">
             <h2 className="text-4xl text-[#6496B3] md:text-5xl font-semibold text-center">
-              <CountUp end={10} duration={2.5} suffix="+" />
+              <CountUp end={5} duration={2.5} suffix="+" />
             </h2>
             <p className="mb-2 text-center">Businesses Supported</p>
           </div>
@@ -23,7 +23,7 @@ function OurMilestone() {
         <div className="w-full md:w-1/2 lg:w-1/3 py-8">
           <div className="md:border-r border-gray-200 px-12">
             <h2 className="text-4xl text-[#6496B3] md:text-5xl font-semibold text-center">
-              <CountUp end={20} duration={2.5} suffix="+" />
+              <CountUp end={10} duration={2.5} suffix="+" />
             </h2>
             <p className="mb-2 text-center">Projects Done</p>
           </div>

@@ -130,7 +130,7 @@ function GetStartedBtn() {
               <div className="flex justify-end">
                 <button
                   id="closeContactForm"
-                  className="text-gray-700 hover:text-red-500"
+                  className="text-red-700 hover:text-red-400"
                   onClick={closeModal}
                 >
                   <svg

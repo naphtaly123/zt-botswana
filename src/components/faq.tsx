@@ -35,7 +35,7 @@ function Faq() {
       {/* CTA */}
       <div className="text-center mt-10">
         <p className="text-sm text-gray-600">Still have questions?</p>
-        <a href="#contact" className="text-blue-600 font-semibold hover:underline">
+        <a href="mailto:support1@zimele.co.bw" className="text-blue-600 font-semibold hover:underline">
           Contact our support team →
         </a>
       </div>
