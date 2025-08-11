@@ -13,7 +13,7 @@ function OurSectors() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 px-11">
         {[
           { name: "Real Estate", src: "https://res.cloudinary.com/dkgpwqmtq/image/upload/v1741167609/real-estate_yue4fs.png" },
-          { name: "Agriculture", src: "https://res.cloudinary.com/dkgpwqmtq/image/upload/t_Banner 16:9/v1741167409/Agriculture_ga0mtb.jpg" },
+          { name: "Public/Government", src: "https://res.cloudinary.com/db4oazav1/image/upload/v1752239881/government_ugeuvu.jpg" },
           { name: "Utilities", src: "https://res.cloudinary.com/dkgpwqmtq/image/upload/v1741167783/utilities_ou77be.jpg" },
           { name: "Insurance", src: "https://res.cloudinary.com/dkgpwqmtq/image/upload/v1741168057/insurance_y1bhmt.jpg" },
           { name: "Finance", src: "https://res.cloudinary.com/dkgpwqmtq/image/upload/v1741168177/finance_esg37s.jpg" },

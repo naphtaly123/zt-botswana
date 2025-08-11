@@ -1,4 +1,4 @@
-import ladyHero from "../assets/lady-hero.png";
+import ladyHero from "../assets/back002_cpy.png";
 import sapSilver from "../assets/SAP-Silver2.jpg";
 
 // import GetStartedBtn from "../forms/get-started-popup";
@@ -82,7 +82,7 @@ function HomePage() {
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Unleashing the Power of IT for a Smarter, Faster, and More
-              Efficient Enterprise. We are Your Trusted Silver Partner in IT &
+              Efficient Enterprise. We are Your Trusted SAP Silver Partner in IT &
               SAP Excellence – Stay Ahead, Stay Secure.
             </p>
           </div>

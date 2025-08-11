@@ -67,10 +67,7 @@ function ContactUsContact() {
   };
 
   const handleSubmit = async () => {
-
-    setIsLoading(true);
-    try {
-      if (!firstName || !lastName || !phone || !subject || !email || !message) {
+    if (!firstName || !lastName || !phone || !subject || !email || !message) {
         toast.error("Please fill in all required fields");
         return;
       }
@@ -87,6 +84,9 @@ function ContactUsContact() {
         return;
       }
 
+    setIsLoading(true);
+    try {
+      
       const userData = { firstName, lastName, phone, subject, email, message };
       const response = await axios.post(
         "https://zt-botswana.onrender.com/mail/send-email/detailed/",
@@ -286,7 +286,17 @@ function ContactUsContact() {
         {isLoading ? "Sending..." : "Submit"}
       </button>
     </div>
+    <div className="text-center mt-3">
+        <p className="text-sm text-gray-600">Something not working right?</p>
+        <a
+          href="mailto:support1@zimele.co.bw"
+          className="text-blue-600 font-semibold hover:underline"
+        >
+          Contact our support team →
+        </a>
+      </div>
   </div>
+  
 </section>
     // <section className="py-12 px-6 mt-8 bg-gradient-to-tr from-[#6496B3] to-[#6496B3]">
     //   <div className="max-w-3xl mx-auto p-8 bg-white/80 backdrop-blur-md border border-white/30 rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300">

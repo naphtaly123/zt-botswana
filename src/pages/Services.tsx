@@ -4,97 +4,19 @@ import { useLocation } from "react-router-dom";
 
 // export default Services;
 import ServBg from "../assets/services-bg.jpg";
-import ZimeleTechnologies from "../assets/zt-sa-logo.png";
-import CoreSystems from "../assets/coresystems-logo.jpg";
-import Sew from "../assets/sew-logo.png";
+// import ZimeleTechnologies from "../assets/zt-sa-logo.png";
+// import CoreSystems from "../assets/coresystems-logo.jpg";
+// import Sew from "../assets/sew-logo.png";
 
-//icons
-import { FiBriefcase } from "react-icons/fi";
-import { SiAppstore } from "react-icons/si";
-import { GiCloudRing } from "react-icons/gi";
-import { IoCodeSharp, IoDocument, IoSettings } from "react-icons/io5";
-import { PiMonitorBold, PiStrategyDuotone } from "react-icons/pi";
-import { MdModelTraining } from "react-icons/md";
+//Import services
+import { services } from "../constants/services";
 
 //card
 import Card from "../components/Card";
 
 function Services() {
-    const location = useLocation();
-    const services = [
-    {
-      title: "Cloud Advisory & Implementation",
-      description:
-        "We provide expert guidance and seamless execution for cloud migration, optimization, and management. Our solutions enhance scalability, security, and cost-efficiency, ensuring your business leverages the full potential of cloud technologies.",
-      detailsLink: "#",
-      tags: ["SAP", "Cloud", "Migration", "Implementation"],
-      icon: <GiCloudRing />,
-    },
-    {
-      title: "Project Management",
-      description:
-        "Our end-to-end project management ensures timely, budget-friendly, and goal-aligned IT projects. From planning to execution, we deliver results that drive your business forward.",
-      detailsLink: "#",
-      tags: ["Project Management", "IT Projects"],
-      icon: <IoDocument />,
-    },
-    {
-      title: "IT Strategy",
-      description:
-        "We create tailored IT roadmaps to align technology with your business goals. Our strategies help you innovate, optimize operations, and stay competitive in a digital-first world.",
-      detailsLink: "#",
-      tags: ["IT", "Strategy"],
-      icon: <IoSettings />,
-    },
-    {
-      title: "Service Desk Advisory",
-      description:
-        "We optimize IT support operations with expert advice on service desk setup, processes, and tools. Our solutions enhance user satisfaction and streamline issue resolution.",
-      detailsLink: "#",
-      tags: ["Services", "Desk", "Advisory"],
-      icon: <PiStrategyDuotone />,
-    },
-    {
-      title: "Manage – IT Services",
-      description:
-        "We offer comprehensive IT service management to ensure smooth operations, proactive maintenance, and continuous improvement of your IT infrastructure.",
-      detailsLink: "#",
-      tags: ["IT", "Services"],
-      icon: <PiMonitorBold />,
-    },
-    {
-      title: "SAP System Assessment",
-      description:
-        "Our in-depth SAP system evaluations identify gaps, optimize performance, and ensure alignment with your business needs for maximum efficiency.",
-      detailsLink: "#",
-      tags: ["SAP", "System", "Assessment"],
-      icon: <IoCodeSharp />,
-    },
-    {
-      title: "SAP Technical & End-User Training",
-      description:
-        "We deliver customized training programs for technical teams and end-users, ensuring your SAP system is used effectively and efficiently.",
-      detailsLink: "#",
-      tags: ["SAP", "Training", "User"],
-      icon: <MdModelTraining />,
-    },
-    {
-      title: "Digital Transformation",
-      description:
-        "We drive innovation and growth with tailored digital transformation strategies, helping businesses adopt cutting-edge technologies to stay ahead in the digital age.",
-      detailsLink: "#",
-      tags: ["Digital", "Transformation"],
-      icon: <FiBriefcase />,
-    },
-    {
-      title: "Software Development",
-      description:
-        "We design and develop custom software solutions tailored to your unique business needs, delivering scalable and future-ready applications from concept to deployment.",
-      detailsLink: "#",
-      tags: ["Software", "Development", "Mobile"],
-      icon: <SiAppstore />,
-    },
-  ];
+  const location = useLocation();
+ 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredServices, setFilteredServices] = useState(services);
@@ -113,26 +35,28 @@ function Services() {
 
   // Filter services based on search term and category
   useEffect(() => {
-    const filtered = services.filter(service => {
+    const filtered = services.filter((service) => {
       // Check if service matches search term (title, description, or tags)
-      const matchesSearch = 
+      const matchesSearch =
         service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         service.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        service.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-      
+        service.tags.some((tag) =>
+          tag.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
       // Check if service matches selected category
-      const matchesCategory = 
-        selectedCategory === "All" || 
-        service.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase());
-      
+      const matchesCategory =
+        selectedCategory === "All" ||
+        service.category.some(
+          (category) => category.toLowerCase() === selectedCategory.toLowerCase()
+        );
+
       return matchesSearch && matchesCategory;
     });
-    
+
     setFilteredServices(filtered);
   }, [searchTerm, selectedCategory]);
 
-
-  
   return (
     <>
       <section
@@ -240,9 +164,7 @@ function Services() {
                 Transition to run:
               </h6>
               <p className="mb-3 text-sm text-gray-900">
-                Gain real-world experience by working on projects that reflect
-                current industry needs and challenges. You'll apply what you
-                learn in a practical, results-driven environment.
+                We ensure a smooth handover from project implementation to operational stability, minimizing disruption while aligning with your ongoing business processes.
               </p>
               <ul className="mb-4 -ml-1 space-y-2">
                 <li className="flex items-start">
@@ -344,9 +266,7 @@ function Services() {
                 Existing support takeover:
               </h6>
               <p className="mb-3 text-sm text-gray-900">
-                Join a growing community of learners, instructors, and industry
-                experts. Build lasting professional connections that can shape
-                your career.
+                Our team rapidly adapts to your current systems, stepping in to maintain and improve existing support structures with minimal learning curve.
               </p>
               <ul className="mb-4 -ml-1 space-y-2">
                 <li className="flex items-start">
@@ -448,9 +368,7 @@ function Services() {
                 SLA Based Outsourcing:
               </h6>
               <p className="mb-3 text-sm text-gray-900">
-                Receive one-on-one guidance from experienced IT professionals
-                and get connected to job and internship opportunities through
-                our partner network.
+                We deliver predictable outcomes through clearly defined Service Level Agreements, giving you peace of mind and measurable performance.
               </p>
               <ul className="mb-4 -ml-1 space-y-2">
                 <li className="flex items-start">
@@ -606,9 +524,7 @@ function Services() {
                 Staff Augumentation:
               </h6>
               <p className="mb-3 text-sm text-gray-900">
-                Receive one-on-one guidance from experienced IT professionals
-                and get connected to job and internship opportunities through
-                our partner network.
+                Scale your internal capabilities with our skilled professionals who integrate seamlessly with your team to meet evolving project needs.
               </p>
               <ul className="mb-4 -ml-1 space-y-2">
                 <li className="flex items-start">
@@ -682,165 +598,170 @@ function Services() {
             </h2>
             <p className="text-gray-600 max-w-lg mt-2 px-3">
               Unlock the full potential of your business with our expert IT
-              solutions.
+              solutions and services.
             </p>
           </div>
 
           {/* Start of search area*/}
 
           <section className="pb-8">
-    <div className="flex flex-col md:flex-row place-items-end justify-end gap-6">
-      {/* Search Bar */}
-      <div className="relative w-full md:w-1/3">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Search by name or tag..."
-          className="w-full px-5 py-3 pr-12 rounded-full border-2 transition-colors duration-300 bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 focus:outline-none focus:ring-1 shadow-sm"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-gray-500 dark:text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </div>
-      </div>
+            <div className="flex flex-col md:flex-row place-items-end justify-end gap-6">
+              {/* Search Bar */}
+              <div className="relative w-full md:w-1/3">
+                <input
+                  type="text"
+                  id="search-input"
+                  placeholder="Search by name or tag..."
+                  className="w-full px-5 py-3 pr-12 rounded-full border-2 transition-colors duration-300 bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 focus:outline-none focus:ring-1 shadow-sm"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-gray-500 dark:text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
 
-      {/* Categories/Tags Filter */}
-      <div className="relative w-full md:w-1/5">
-        <select
-          id="category-filter"
-          className="block w-full px-5 py-3 rounded-full border-2 appearance-none cursor-pointer transition-colors duration-300 bg-white border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-cyan-500 dark:focus:ring-cyan-500 focus:outline-none focus:ring-1 shadow-sm"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="All">All Categories</option>
-          <option value="SAP">SAP</option>
-          <option value="IT">IT</option>
-          <option value="Cloud">Cloud</option>
-          <option value="Digital">Digital</option>
-          <option value="Software">Software</option>
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-          <svg
-            className="h-4 w-4 text-gray-500 dark:text-gray-400"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
+              {/* Categories/Tags Filter */}
+              <div className="relative w-full md:w-1/5">
+                <select
+                  id="category-filter"
+                  className="block w-full px-5 py-3 rounded-full border-2 appearance-none cursor-pointer transition-colors duration-300 bg-white border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-cyan-500 dark:focus:ring-cyan-500 focus:outline-none focus:ring-1 shadow-sm"
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                  <option value="All">All Categories</option>
+                  <option value="Products">Products</option>
+                  <option value="Services">Services</option>
+                  <option value="Solutions">Solutions</option>
+                  
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <svg
+                    className="h-4 w-4 text-gray-500 dark:text-gray-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* End of search area*/}
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-3 align-items-start">
-    {filteredServices.length > 0 ? (
-      filteredServices.map((service, index) => (
-        <Card
-          key={index}
-          title={service.title}
-          description={service.description}
-          icon={service.icon}
-        />
-      ))
-    ) : (
-      <div className="col-span-full py-12 text-center">
-        <div className="mx-auto max-w-md">
-          <svg
-            className="mx-auto h-12 w-12 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <h3 className="mt-2 text-lg font-medium text-gray-900">
-            No services found
-          </h3>
-          <p className="mt-1 text-gray-500">
-            Try adjusting your search or filter to find what you're looking for.
-          </p>
-          <div className="mt-6">
-            <button
-              type="button"
-              className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              onClick={() => {
-                setSearchTerm("");
-                setSelectedCategory("All");
-              }}
-            >
-              Clear filters
-            </button>
+
+          <div className="grid-layout px-3">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 px-3 align-items-start"> */}
+            {filteredServices.length > 0 ? (
+              filteredServices.map((service, index) => (
+                <Card
+                  key={index}
+                  title={service.title}
+                  description={service.description}
+                  benefits={service.benefits}
+                  target={service.target}
+                  icon={service.icon}
+                  
+                />
+              ))
+            ) : (
+              <div className="col-span-full py-12 text-center">
+                <div className="mx-auto max-w-md">
+                  <svg
+                    className="mx-auto h-12 w-12 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <h3 className="mt-2 text-lg font-medium text-gray-900">
+                    No services found
+                  </h3>
+                  <p className="mt-1 text-gray-500">
+                    Try adjusting your search or filter to find what you're
+                    looking for.
+                  </p>
+                  <div className="mt-6">
+                    <button
+                      type="button"
+                      className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      onClick={() => {
+                        setSearchTerm("");
+                        setSelectedCategory("All");
+                      }}
+                    >
+                      Clear filters
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      </div>
-    )}
-  </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 content-center">
+      {/* <section className="bg-white py-16 content-center">
         <div className="max-w-8xl mx-auto px-10 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-black text-center">
             OUR INDUSTRY PARTNERS
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mx-auto">
             {/* Card 1 */}
-            <div className="flex flex-col items-center text-center">
+            {/* <div className="flex flex-col items-center text-center">
               <img
                 src={ZimeleTechnologies}
                 alt="avatar"
                 className="w-[50%] h-auto flex max-h-lvh"
               />
-            </div>
+            </div> */}
 
             {/* Card 2 */}
-            <div className="flex flex-col items-center text-center">
+            {/* <div className="flex flex-col items-center text-center">
               <img
                 src={CoreSystems}
                 alt="avatar"
                 className="w-[50%] h-auto flex max-h-lvh"
               />
-            </div>
+            </div> */}
 
             {/* Card 3 */}
-            <div className="flex flex-col items-center text-center">
+            {/* <div className="flex flex-col items-center text-center">
               <img
                 src={Sew}
                 alt="avatar"
                 className="w-[50%] h-auto flex max-h-lvh"
               />
-            </div>
-          </div>
-        </div>
-      </section>
+            </div> */}
+          {/* </div>
+        </div> */}
+      {/* </section> */} 
     </>
   );
 }

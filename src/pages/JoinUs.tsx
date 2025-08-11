@@ -103,7 +103,7 @@ function JoinUs() {
         </div>
       </section>
 
-      {/* <!-- About Section --> */}
+      {/* <!-- IT CAPACITY BUILDING PROGRAMME --> */}
       <section id="it-capacity-building" className="pt-14 pb-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
