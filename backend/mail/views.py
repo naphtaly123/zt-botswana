@@ -12,6 +12,10 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 
+import requests
+import os
+from msal import ConfidentialClientApplication
+
 from .models import UserMessage
 
 logger = logging.getLogger(__name__)
@@ -47,6 +51,10 @@ def sendToUs(subject, message, user_email, phone):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class GeneralMailView(View):
+    '''
+    This function is for the email backend system of Gmail as the primary sending email, the system currently uses outlook. check the 
+    PushMail view which uses oulook as the primary backend
+    '''
     def post(self, request):
         try:
             data = json.loads(request.body)
@@ -87,6 +95,10 @@ class GeneralMailView(View):
 #DetailedMail
 @method_decorator(csrf_exempt, name='dispatch')
 class DetailedMailView(View):
+    '''
+    This function is for the email backend system of Gmail as the primary sending email, the system currently uses outlook. check the 
+    PushMail view which uses oulook as the primary backend
+    '''
     def post(self, request):
         try:
             data = json.loads(request.body)
@@ -144,3 +156,151 @@ class DetailedMailView(View):
         except Exception as e:
             logger.error("Error sending email: %s", e, exc_info=True)
             return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+#Uses Outlook as the primary sending email
+@method_decorator(csrf_exempt, name='dispatch')
+class send_email_graph(View):
+
+    def post(self, request):
+        try:
+            data = json.loads(request.body)
+            
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # Authentication Variables
+        tenant_id = os.getenv('tenant_id')
+        client_id = os.getenv('client_id')
+        client_secret = os.getenv('client_secret')
+        from_email = os.getenv('from_email')
+        info_email = os.getenv('info_email')
+
+        # User Data
+        user_firstName = data.get("firstName")
+        user_lastName = data.get("lastName")
+        user_phone = data.get("phone")
+        user_subject = data.get("subject")
+        recipient_email = data.get("email")
+        message = data.get("message", '')
+
+        # Validate required fields
+        if not recipient_email:
+            return JsonResponse({"error": "Email is required"}, status=status.HTTP_400_BAD_REQUEST)
+        if not user_subject:
+            return JsonResponse({"error": "Subject is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Render email template
+        html_content = render_to_string('mail/email-contact-body.html', {
+            'first_name': user_firstName,
+            'subject': user_subject,
+            'message': message,
+            'email': recipient_email
+        })
+
+        print("🔑 Acquiring access token...")
+        
+        # 1. Get Access Token
+        try:
+            app = ConfidentialClientApplication(
+                client_id=client_id,
+                client_credential=client_secret,
+                authority=f"https://login.microsoftonline.com/{tenant_id}",
+            )
+
+            result = app.acquire_token_for_client(scopes=["https://graph.microsoft.com/.default"])
+        
+            if "access_token" not in result:
+                print(f"❌ Token acquisition failed: {result.get('error_description')}")
+                return JsonResponse({"error": "Authentication failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                
+            access_token = result['access_token']
+            
+        except Exception as e:
+            print(f"❌ Token acquisition error: {e}")
+            return JsonResponse({"error": "Authentication error"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # 2. Prepare email request
+        graph_url = f"https://graph.microsoft.com/v1.0/users/{from_email}/sendMail"
+
+        # Sending to the user
+        email_data = {
+            "message": {
+                "subject": "Noreply - Automated Confirmation",
+                "body": {
+                    "contentType": "HTML",
+                    "content": html_content
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "address": recipient_email
+                        }
+                    }
+                ]
+            },
+            "saveToSentItems": "true"
+        }
+
+        # Email to info - Fixed content type and formatting
+        email_to_us = {
+            "message": {
+                "subject": f'WEBSITE REQUEST - {user_subject}',
+                "body": {
+                    "contentType": "Text",  # Changed to Text for plain content
+                    "content": f"User: {recipient_email}\nPhone: {user_phone or 'Not provided'}\nSubject: {user_subject}\nMessage: {message or 'No message'}"
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "address": info_email
+                        }
+                    }
+                ]
+            },
+            "saveToSentItems": "true"
+        }
+
+        headers = {
+            'Authorization': f'Bearer {access_token}',
+            'Content-Type': 'application/json'
+        }
+
+        # 3. Send requests
+        print("📨 Sending email to user...")
+        try:
+            # Sending to user
+            response_user = requests.post(graph_url, headers=headers, json=email_data)
+            
+            if response_user.status_code == 202:
+                print("✅ User email sent successfully!")
+                
+                # Sending to our info mailbox
+                print("📨 Sending email to info mailbox...")
+                response_info = requests.post(graph_url, headers=headers, json=email_to_us)
+                
+                if response_info.status_code == 202:
+                    print("✅ Info email sent successfully!")
+                    
+                    # Save user email to database
+                    saveUserEmail(
+                        firstName=user_firstName, 
+                        lastName=user_lastName, 
+                        phone=user_phone, 
+                        email=recipient_email, 
+                        subject=user_subject, 
+                        message=message
+                    )
+                    
+                    return JsonResponse({"success": "Emails sent successfully"}, status=status.HTTP_200_OK)
+                else:
+                    print(f"❌ Info email failed: {response_info.status_code} - {response_info.text}")
+                    return JsonResponse({"error": "Failed to send internal notification"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
+            else:
+                print(f"❌ User email failed: {response_user.status_code} - {response_user.text}")
+                return JsonResponse({"error": "Failed to send confirmation email"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                
+        except Exception as e:
+            print(f"❌ Request failed: {e}")
+            return JsonResponse({"error": "Email sending failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
