@@ -1,3 +1,4 @@
 back_env
 .env
 *.env
+backend/backend/.env
