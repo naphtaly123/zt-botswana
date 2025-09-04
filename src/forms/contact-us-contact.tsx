@@ -91,7 +91,8 @@ function ContactUsContact() {
       const response = await axios.post(
         // "https://zt-botswana.onrender.com/mail/send-email/detailed/",
         // "http://127.0.0.1:8000/mail/send-email/detailed/",
-        "http://127.0.0.1:8000/mail/send-email/sendmailgraph/",
+        // "http://127.0.0.1:8000/mail/send-email/sendmailgraph/",
+        "https://zt-botswana.onrender.com/mail/send-email/sendmailgraph/",
         userData
       );
       console.log("Response:", response.data);
