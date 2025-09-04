@@ -20,8 +20,10 @@
           </tr>
           <tr>
             <td class="p-6">
-              <p class="text-lg font-medium mb-4">Hello {{ first_name }},</p>
-              <p class="text-gray-300 mb-6">
+              {%if first_name %}
+              <p class="text-lg font-medium mb-4">Hello {{ first_name }},</p> {% else %}
+              <p class="text-lg font-medium mb-4">Good day,</p>
+              <p class="text-gray-300 mb-6"> {% endif %}
                 Thank you for contacting <strong>Zimele Technologies Botswana!</strong>  We've received your message regarding:
                 <strong>{{ subject }}</strong>
               </p>
