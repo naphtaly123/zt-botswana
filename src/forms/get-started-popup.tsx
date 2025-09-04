@@ -63,8 +63,10 @@ function GetStartedBtn() {
     try {
       const userData = { subject, email, message };
       const response = await axios.post(
-        "https://zt-botswana.onrender.com/mail/send-email/general/",
+        // "https://zt-botswana.onrender.com/mail/send-email/general/",
         // "http://127.0.0.1:8000/mail/send-email/general/",
+        // "http://127.0.0.1:8000/mail/send-email/sendmailgraph/",
+        "https://zt-botswana.onrender.com/mail/send-email/sendmailgraph/",
         userData
       );
 
@@ -130,7 +132,7 @@ function GetStartedBtn() {
               <div className="flex justify-end">
                 <button
                   id="closeContactForm"
-                  className="text-red-700 hover:text-red-400"
+                  className="text-white hover:text-red-400"
                   onClick={closeModal}
                 >
                   <svg

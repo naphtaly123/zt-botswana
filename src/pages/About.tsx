@@ -435,27 +435,46 @@ function AboutPage() {
             </div>
           </div>
           <div className="flex flex-wrap items-center mt-16">
-            <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
+            <div className="w-full md:w-7/12 px-4 mr-auto ml-auto">
               <p className="inline-block px-0 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                 MANAGING DIRECTOR
               </p>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
                 ONKABETSE MONNAWAPULA
               </h3>
-              <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                At Zimele Technologies Botswana, we believe that the right
+              <div className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+                {/* At Zimele Technologies Botswana, we believe that the right
                 technology, combined with the right team, can transform
                 businesses and unlock limitless potential. Our mission is to
                 empower our clients with innovative solutions, tailored
                 strategies, and unwavering support. Together, we don’t just
-                adapt to change – we drive it
-              </p>
+                adapt to change – we drive it */}
+                Onkabetse Monnawapula is a seasoned executive with over a decade
+                of experience in accounting and information technology.
+                Currently serving as the Managing Director of Zimele
+                Technologies Botswana, he brings a wealth of knowledge in
+                leading IT organizations and driving strategic growth. <br/> He holds
+                a Master’s Degree in Business Administration, which complements
+                his extensive background in SAP environments and technology
+                solutions. With 12 years of experience specializing in
+                information technology and 10 years in accounting, Onkabetse has
+                developed a comprehensive understanding of business operations
+                and technology integration. <br/>His leadership over the past five
+                years as Managing Director has been marked by innovative
+                initiatives and effective management of complex IT projects.
+                Onkabetse's extensive expertise and dedication have been
+                demonstrated through his professional work spanning Botswana and
+                South Africa, enabling him to bring a diverse perspective to
+                Zimele Technologies Botswana. His international experience
+                continues to position Zimele Technologies as a key player in the
+                technology sector.
+              </div>
 
-              <a href="#" className="font-bold text-blueGray-700 mt-8">
+              <p className="font-bold text-blueGray-700 mt-7">
                 Innovate. Transform. Succeed.
-              </a>
+              </p>
             </div>
-            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
+            <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg">
                 <img
                   src={md}
@@ -467,7 +486,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
-      
+
       {/*ACCREDITATIONS AND CERTIFICATES*/}
       <section className="px-24 pt-10">
         <h2 className="my-4 font-bold text-xl text-center sm:text-4xl ">
@@ -529,7 +548,6 @@ function AboutPage() {
             </li>
             <li>PPADB - 319 ICT Consultancy</li>
           </div>
-          
         </div>
       </section>
       {/*OUR INDUSTRY PARTNERS*/}
