@@ -291,7 +291,7 @@ function ContactUsContact() {
     <div className="text-center mt-3">
         <p className="text-sm text-gray-600">Something not working right?</p>
         <a
-          href="mailto:support1@zimele.co.bw"
+          href="mailto:info@zimele.co.bw"
           className="text-blue-600 font-semibold hover:underline"
         >
           Contact our support team →
