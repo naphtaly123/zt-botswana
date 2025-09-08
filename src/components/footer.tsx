@@ -27,8 +27,8 @@ function Footer() {
               Botswana
             </p>
             <p className="mt-2">
-              (+267) 3980469 | 3980416<br />
-              (+267) 79127013
+              (+267) 3980461 | 79127013<br />
+              <a href="mailto:info@zimele.co.bw">info@zimele.co.bw</a>
             </p>
 
             {/* Social Icons */}
@@ -105,8 +105,9 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li>SAP ERP</li>
               <li>Cloud Advisory & Implementation</li>
-              <li>System Assessments</li>
-              <li>EA Review & Implementation</li>
+              <li>ICT Governance and Strategy Consulting</li>
+              <li>Application Maintenance and Support</li>
+              <li>ICT Consulting</li>
               <li>
                 <Link
                   to="/services"
