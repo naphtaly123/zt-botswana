@@ -3,7 +3,7 @@ import ZimeleTechnologies from "../assets/zt-sa-logo.png";
 import CoreSystems from "../assets/coresystems-logo.jpg";
 import Sew from "../assets/sew-logo.png";
 // import OurTeam from "../components/our-team"; -Team section commented out
-import md from "../assets/md.jpg";
+// import md from "../assets/md.jpg";
 import team from "../assets/team.jpg";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
@@ -474,12 +474,13 @@ function AboutPage() {
                 Innovate. Transform. Succeed.
               </p>
             </div>
-            <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
+            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg">
                 <img
-                  src={md}
+                  // src={md}
+                  src="https://res.cloudinary.com/dh3ktp1w6/image/upload/v1758003761/IMG_9993_delfzs.jpg"
                   alt="avatar"
-                  className=" w-full h-auto flex max-h-lvh"
+                  className=" w-fit h-1/2 flex max-h-lvh"
                 />
               </div>
             </div>
