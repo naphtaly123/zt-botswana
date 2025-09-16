@@ -54,6 +54,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",
     "https://zimele-technologies-botswana.onrender.com",
     "https://render.zimele.co.bw",
+    "https://www.zimele.co.bw",
+    "https://zimele.co.bw"
    
 ]
 
