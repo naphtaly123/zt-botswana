@@ -6,7 +6,7 @@ function OurSectors() {
           What sectors of the economy do we serve
         </p>
         <p className="text-base text-[#000D51] md:text-lg mt-2">
-          We provide tailored IT solutions for a variety of industries.
+          We provide tailored SAP & IT solutions for a variety of industries.
         </p>
       </div>
 
