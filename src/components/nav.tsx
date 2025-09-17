@@ -217,14 +217,14 @@ function Nav() {
                 </Link>
                 <div className="pl-4 pt-2">
                   <Link 
-                    to="/carriers" 
+                    to="/join-us#_" 
                     className="block text-white hover:text-gray-300 py-1 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                   >
                     Carriers
                   </Link>
                   <Link 
-                    to="/it-capacity-building" 
+                    to="/join-us#it-capacity-building" 
                     className="block text-white hover:text-gray-300 py-1 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                   >
