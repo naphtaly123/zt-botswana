@@ -10,6 +10,7 @@ import JoinUs from "./pages/JoinUs";
 import ReactLenis from "lenis/react";
 import { Toaster } from 'react-hot-toast';
 import Services from "./pages/Services";
+import NotFound from "./components/not-found";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/join-us" element={<JoinUs />} />
+          {/*If not found*/}
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
         <Footer />
       </Router>
