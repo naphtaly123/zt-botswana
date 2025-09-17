@@ -80,39 +80,39 @@ function Nav() {
 
   return (
     <>
-      <header className="py-5 fixed w-full top-0 z-20 px-10 shadow" style={{ backgroundColor: "#6496B3" }}>
-        <nav className="container mx-10 justify-between items-center flex">
+      <header className="py-3 md:py-5 fixed w-full top-0 z-50 px-4 md:px-10 shadow" style={{ backgroundColor: "#6496B3" }}>
+        <nav className="container mx-auto flex justify-between items-center">
           {/* Logo */}
-          <Link to="/#_">
-            <img src={logo} alt="Logo" className="h-12 mx-6" />
+          <Link to="/#_" className="flex-shrink-0">
+            <img src={logo} alt="Logo" className="h-10 md:h-12" />
           </Link>
 
           {/* Nav Links */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-4 lg:space-x-6">
             <Link 
               to="/#_" 
-              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/#_") ? "active-link" : ""}`}
+              className={`relative text-white hover:text-gray-300 text-lg lg:text-xl transition-colors duration-300 ${isActive("/#_") ? "active-link" : ""}`}
             >
               Home
               <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/#_") ? "w-full" : "w-0"}`}></span>
             </Link>
             <Link 
               to="/services" 
-              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/services") ? "active-link" : ""}`}
+              className={`relative text-white hover:text-gray-300 text-lg lg:text-xl transition-colors duration-300 ${isActive("/services") ? "active-link" : ""}`}
             >
               Services
               <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/services") ? "w-full" : "w-0"}`}></span>
             </Link>
             <Link 
               to="/about" 
-              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/about") ? "active-link" : ""}`}
+              className={`relative text-white hover:text-gray-300 text-lg lg:text-xl transition-colors duration-300 ${isActive("/about") ? "active-link" : ""}`}
             >
               About
               <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/about") ? "w-full" : "w-0"}`}></span>
             </Link>
             <Link 
               to="/contact" 
-              className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/contact") ? "active-link" : ""}`}
+              className={`relative text-white hover:text-gray-300 text-lg lg:text-xl transition-colors duration-300 ${isActive("/contact") ? "active-link" : ""}`}
             >
               Contact
               <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/contact") ? "w-full" : "w-0"}`}></span>
@@ -120,13 +120,13 @@ function Nav() {
             
             {/* Join Us with Dropdown */}
             <div 
-              className="relative "
+              className="relative"
               onMouseEnter={() => setIsJoinUsHovered(true)}
               onMouseLeave={() => setIsJoinUsHovered(false)}
             >
               <Link 
                 to="/join-us" 
-                className={`relative text-white hover:text-gray-300 text-xl transition-colors duration-300 ${isActive("/join-us") ? "active-link" : ""}`}
+                className={`relative text-white hover:text-gray-300 text-lg lg:text-xl transition-colors duration-300 ${isActive("/join-us") ? "active-link" : ""}`}
               >
                 Join Us
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive("/join-us") ? "w-full" : "w-0"}`}></span>
@@ -155,7 +155,7 @@ function Nav() {
           </div>
 
           {/* Get in Touch Button */}
-          <div>
+          <div className="hidden md:block">
             <GetStartedBtn />
           </div>
 
@@ -166,31 +166,34 @@ function Nav() {
             aria-expanded={isOpen}
             aria-label="Toggle Navigation"
           >
-            ☰
+            {isOpen ? "✕" : "☰"}
           </button>
         </nav>
 
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-[#102E7D] transition-all duration-300 ease-in-out">
-            <nav className="flex flex-col space-y-6 text-center py-4 px-4">
+            <nav className="flex flex-col space-y-4 text-center py-4 px-4">
               <Link 
                 to="/#_" 
                 className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/#_") ? "active-link" : ""}`}
+                onClick={() => setIsOpen(false)}
               >
                 Home
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/#_") ? "w-3/4" : "w-0"}`}></span>
               </Link>
               <Link 
-                to="/#services" 
-                className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/#services") ? "active-link" : ""}`}
+                to="/services" 
+                className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/services") ? "active-link" : ""}`}
+                onClick={() => setIsOpen(false)}
               >
                 Services
-                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/#services") ? "w-3/4" : "w-0"}`}></span>
+                <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/services") ? "w-3/4" : "w-0"}`}></span>
               </Link>
               <Link 
                 to="/about" 
                 className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/about") ? "active-link" : ""}`}
+                onClick={() => setIsOpen(false)}
               >
                 About
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/about") ? "w-3/4" : "w-0"}`}></span>
@@ -198,6 +201,7 @@ function Nav() {
               <Link 
                 to="/contact" 
                 className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/contact") ? "active-link" : ""}`}
+                onClick={() => setIsOpen(false)}
               >
                 Contact
                 <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/contact") ? "w-3/4" : "w-0"}`}></span>
@@ -206,6 +210,7 @@ function Nav() {
                 <Link 
                   to="/join-us" 
                   className={`relative text-white hover:text-gray-300 py-2 transition-colors duration-300 ${isActive("/join-us") ? "active-link" : ""}`}
+                  onClick={() => setIsOpen(false)}
                 >
                   Join us
                   <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white transition-all duration-300 ${isActive("/join-us") ? "w-3/4" : "w-0"}`}></span>
@@ -214,12 +219,14 @@ function Nav() {
                   <Link 
                     to="/carriers" 
                     className="block text-white hover:text-gray-300 py-1 transition-colors duration-300"
+                    onClick={() => setIsOpen(false)}
                   >
                     Carriers
                   </Link>
                   <Link 
                     to="/it-capacity-building" 
                     className="block text-white hover:text-gray-300 py-1 transition-colors duration-300"
+                    onClick={() => setIsOpen(false)}
                   >
                     IT Capacity Building
                   </Link>

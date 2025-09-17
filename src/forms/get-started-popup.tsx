@@ -4,8 +4,6 @@ import { validateInput, validateEmail } from "./form-validations";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdErrorOutline } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
-
-
 import toast from "react-hot-toast";
 
 function GetStartedBtn() {
@@ -63,15 +61,11 @@ function GetStartedBtn() {
     try {
       const userData = { subject, email, message };
       const response = await axios.post(
-        // "https://zt-botswana.onrender.com/mail/send-email/general/",
-        // "http://127.0.0.1:8000/mail/send-email/general/",
-        // "http://127.0.0.1:8000/mail/send-email/sendmailgraph/",
         "https://zt-botswana.onrender.com/mail/send-email/sendmailgraph/",
         userData
       );
 
       console.log("Response:", response.data);
-      // alert("Email sent successfully!");
       toast.success("Email sent successfully!")
 
       // Reset form
@@ -91,24 +85,18 @@ function GetStartedBtn() {
   };
 
   return (
-    <div className="relative z-10 justify-center items-center px-10 h-6 mb-5 text-black">
+    <>
       {/* Trigger Button */}
-      <div className="relative inline-flex group mt-1">
-        <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#bbcde8] to-[#Fff] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+      <div className="relative inline-flex group w-full sm:w-auto justify-center sm:justify-start">
+        <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#bbcde8] to-[#Fff] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt hidden sm:block"></div>
         <button
           id="openContactForm"
-          className="relative inline-flex items-center justify-center px-2 py-1 text-lg text-[#6496B3] transition-all duration-200 bg-white font-pj rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-100"
+          className="relative text-white transition-all duration-200 bg-transparent border-2 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white
+            px-4 py-2 text-base w-full max-w-xs sm:max-w-none sm:px-6 hover:bg-white hover:text-[#6496B3]"
           onClick={openModal}
         >
           Get in Touch
         </button>
-        {/* <button
-        id="openContactForm"
-          onClick={openModal}
-          className="bg-white text-[#6496B3] sm:text-sm border-white px-6 mx-8 py-2 rounded transition duration-300 ease-in-out hover:bg-sky-400 hover:shadow-lg hover:scale-105"
-        >
-          Get in Touch
-        </button> */}
       </div>
 
       {/* Modal */}
@@ -116,59 +104,48 @@ function GetStartedBtn() {
         {isModalOpen && (
           <motion.div
             id="contactFormModal"
-            className="fixed z-10 inset-0 overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-70 flex items-center justify-center p-3 md:p-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={closeModal}
           >
             <motion.div
-              className="bg-white/20 backdrop-blur-lg rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 border border-white/10"
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -50, opacity: 0 }}
+              className="bg-white/20 backdrop-blur-lg rounded-lg shadow-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-end">
+              <div className="flex justify-end p-4">
                 <button
                   id="closeContactForm"
-                  className="text-white hover:text-red-400"
+                  className="text-white hover:text-red-400 text-2xl"
                   onClick={closeModal}
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
+                  &times;
                 </button>
               </div>
-              <section className="py-6">
-                <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
+              <section className="py-4 md:py-6 px-3 md:px-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-white/30 gap-6 md:gap-0">
                   {/* Contact Information */}
-                  <div className="py-6 md:py-0 md:px-6">
-                    <h1 className="text-4xl font-bold text-white">
+                  <div className="py-4 md:py-0 md:px-6">
+                    <h1 className="text-3xl md:text-4xl font-bold text-white">
                       Get in touch
                     </h1>
-                    <p className="pt-2 pb-4 text-gray-200">
+                    <p className="pt-2 pb-4 text-gray-200 text-sm md:text-base">
                       Does your business need SAP/IT solutions or you are not
                       sure? Fill the form for more information.
                     </p>
-                    <div className="space-y-4 text-gray-200">
-                      <p className="flex items-center">
+                    <div className="space-y-3 md:space-y-4 text-gray-200 text-sm md:text-base">
+                      <p className="flex items-start">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          className="w-5 h-5 mr-2 sm:mr-6"
+                          className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"
                         >
                           <path
                             fillRule="evenodd"
@@ -186,7 +163,7 @@ function GetStartedBtn() {
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          className="w-5 h-5 mr-2 sm:mr-6"
+                          className="w-5 h-5 mr-2 flex-shrink-0"
                         >
                           <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                         </svg>
@@ -197,13 +174,13 @@ function GetStartedBtn() {
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          className="w-5 h-5 mr-2 sm:mr-6"
+                          className="w-5 h-5 mr-2 flex-shrink-0"
                         >
                           <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                         </svg>
                         <span>
-                          <a href="mailto:info@zimele.co.bw">
+                          <a href="mailto:info@zimele.co.bw" className="break-all">
                             info@zimele.co.bw
                           </a>
                         </span>
@@ -211,23 +188,23 @@ function GetStartedBtn() {
                     </div>
                   </div>
                   {/* Form */}
-                  <form className="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
+                  <form className="flex flex-col py-4 md:py-0 md:px-6 space-y-4 md:space-y-6">
                     <div className="relative">
                       <input
                         type="text"
                         id="subject"
                         name="subject"
                         onChange={handleSubject}
-                        placeholder="subject"
-                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Subject"
+                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
                       />
 
                       {subject.length > 0 && (
-                        <div className="absolute right-4 top-3">
+                        <div className="absolute right-4 top-3.5">
                           {subjectVerify ? (
-                            <IoMdCheckmarkCircleOutline className="text-green-500" />
+                            <IoMdCheckmarkCircleOutline className="text-green-500 text-lg" />
                           ) : (
-                            <MdErrorOutline className="text-red-500" />
+                            <MdErrorOutline className="text-red-500 text-lg" />
                           )}
                         </div>
                       )}
@@ -238,16 +215,16 @@ function GetStartedBtn() {
                         id="email"
                         name="email"
                         onChange={handleEmail}
-                        placeholder="enter your email"
-                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Enter your email"
+                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
                       />
 
                       {email.length > 0 && (
-                        <div className="absolute right-4 top-3">
+                        <div className="absolute right-4 top-3.5">
                           {emailVerify ? (
-                            <IoMdCheckmarkCircleOutline className="text-green-500" />
+                            <IoMdCheckmarkCircleOutline className="text-green-500 text-lg" />
                           ) : (
-                            <MdErrorOutline className="text-red-500" />
+                            <MdErrorOutline className="text-red-500 text-lg" />
                           )}
                         </div>
                       )}
@@ -257,28 +234,29 @@ function GetStartedBtn() {
                         id="message"
                         name="message"
                         onChange={handleMessage}
-                        placeholder="message"
-                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Message"
+                        rows={4}
+                        className="block w-full rounded-md bg-white/20 backdrop-blur-sm py-3 px-4 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base resize-none"
                       ></textarea>
 
                       {message.length > 0 && (
-                        <div className="absolute right-4 top-3">
+                        <div className="absolute right-4 top-3.5">
                           {messageVerify ? (
-                            <IoMdCheckmarkCircleOutline className="text-green-500" />
+                            <IoMdCheckmarkCircleOutline className="text-green-500 text-lg" />
                           ) : (
-                            <MdErrorOutline className="text-red-500" />
+                            <MdErrorOutline className="text-red-500 text-lg" />
                           )}
                         </div>
                       )}
                     </div>
                     {apiError && (
-                      <p className="text-white text-center">{apiError}</p>
+                      <p className="text-white text-center text-sm md:text-base">{apiError}</p>
                     )}
                     <button
                       type="button"
                       onClick={handleSubmit}
                       disabled={isLoading}
-                      className="self-center px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-purple-600 hover:to-blue-500 transition-all duration-300 hover:shadow-lg"
+                      className="self-center px-6 py-2 text-base md:text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-purple-600 hover:to-blue-500 transition-all duration-300 hover:shadow-lg disabled:opacity-70"
                     >
                       {isLoading ? "Sending..." : "Submit"}
                     </button>
@@ -289,7 +267,7 @@ function GetStartedBtn() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
 

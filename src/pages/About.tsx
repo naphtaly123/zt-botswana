@@ -74,7 +74,7 @@ function AboutPage() {
         <div className="max-w-8xl mx-auto px-10 sm:px-6 lg:px-8">
           <h2 className="my-4 font-bold text-center text-3xl  sm:text-4xl ">
             About{" "}
-            <span className="text-indigo-600">
+            <span className="text-[#6496B3]">
               Zimele Technologies Botswana
             </span>
           </h2>
@@ -191,7 +191,7 @@ function AboutPage() {
   <div className="w-full sm:w-2/3 p-4 sm:p-5">
     <div className="text">
       <h2 className="my-4 font-bold text-base sm:text-xl md:text-2xl">
-        <span className="text-indigo-600">Our History</span>
+        <span className="text-[#6496B3]">Our History</span>
       </h2>
       <p className="text-gray-700 pb-4 text-sm sm:text-base">
         Zimele Technologies Botswana was formed in 2020, in Gaborone. The
@@ -309,69 +309,6 @@ function AboutPage() {
 </section>
 
       {/* OUR MD */}
-
-      {/* <section className=" bg-gray-100 mt-0 pb-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap">
-            <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-1 shadow-lg rounded-lg">
-                <div className="px-4 flex-auto"></div>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center mt-16">
-            <div className="w-full md:w-7/12 px-4 mr-auto ml-auto">
-              <p className="inline-block px-0 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                MANAGING DIRECTOR
-              </p>
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                ONKABETSE MONNAWAPULA
-              </h3>
-              <div className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                {/* At Zimele Technologies Botswana, we believe that the right
-                technology, combined with the right team, can transform
-                businesses and unlock limitless potential. Our mission is to
-                empower our clients with innovative solutions, tailored
-                strategies, and unwavering support. Together, we don’t just
-                adapt to change – we drive it *
-                Onkabetse Monnawapula is a seasoned executive with over a decade
-                of experience in accounting and information technology.
-                Currently serving as the Managing Director of Zimele
-                Technologies Botswana, he brings a wealth of knowledge in
-                leading IT organizations and driving strategic growth. <br/> He holds
-                a Master’s Degree in Business Administration, which complements
-                his extensive background in SAP environments and technology
-                solutions. With 12 years of experience specializing in
-                information technology and 10 years in accounting, Onkabetse has
-                developed a comprehensive understanding of business operations
-                and technology integration. <br/>His leadership over the past five
-                years as Managing Director has been marked by innovative
-                initiatives and effective management of complex IT projects.
-                Onkabetse's extensive expertise and dedication have been
-                demonstrated through his professional work spanning Botswana and
-                South Africa, enabling him to bring a diverse perspective to
-                Zimele Technologies Botswana. His international experience
-                continues to position Zimele Technologies as a key player in the
-                technology sector.
-              </div>
-
-              <p className="font-bold text-blueGray-700 mt-7">
-                Innovate. Transform. Succeed.
-              </p>
-            </div>
-            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg">
-                <img
-                  // src={md}
-                  src="https://res.cloudinary.com/dh3ktp1w6/image/upload/v1758003761/IMG_9993_delfzs.jpg"
-                  alt="avatar"
-                  className=" w-fit h-1/2 flex max-h-lvh"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <section className="bg-gray-100 mt-0 pb-12">
   <div className="container mx-auto px-4">
     <div className="flex flex-wrap items-center mt-16">

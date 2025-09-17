@@ -21,7 +21,6 @@ function HomePage() {
     }
   }, [location]);
 
-
   return (
     <>
       <section
@@ -113,20 +112,21 @@ function HomePage() {
 
       {/* Video Section */}
       <section className="bg-[#6496B3] font-sans">
-        {" "}
-        {/* Added sans-serif font */}
-        <div className="section h-full flex flex-col justify-center items-center mx-auto py-7">
-          <h1 className="text-center text-xl text-white font-semibold mb-7">
-            UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-<br></br>
+        <div className="section h-full flex flex-col justify-center items-center mx-auto py-7 px-4 sm:px-6">
+          <h1 className="text-center text-lg sm:text-xl md:text-2xl text-white font-semibold mb-4 sm:mb-7">
+            UNLOCK EFFICIENCY, DRIVE GROWTH AND INNOVATE WITH SAP-
+            <br className="hidden sm:block" />
             POWERED BUSINESS SOLUTIONS
           </h1>
-          <video width="60%" height="500" controls>
-            <source
-              src="https://res.cloudinary.com/dh3ktp1w6/video/upload/v1744880806/Zimele_Tech_Botswana_ghi0qp.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+          <div className="w-full md:w-4/5 lg:w-3/5 aspect-video max-w-4xl">
+            <video className="w-full h-full" controls>
+              <source
+                src="https://res.cloudinary.com/dh3ktp1w6/video/upload/v1744880806/Zimele_Tech_Botswana_ghi0qp.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </section>
       {/* Services Section */}
